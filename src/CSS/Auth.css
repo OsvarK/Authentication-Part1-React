@@ -1,0 +1,116 @@
+.Auth-Wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    width: 100%;   
+}
+
+.Auth-Container {
+    background-color: white;
+    width: 340px;
+    -webkit-box-shadow: 0px 0px 26px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 26px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 26px -7px rgba(0,0,0,0.75);
+}
+
+
+.Auth-Card {
+    padding: 15px;
+}
+
+.Auth-card-span {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding: 5px 0 5px 0;
+}
+
+.Auth-error-Wrapper {
+    background-color: red;
+    padding: 1px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.Auth-card-span > input {
+    margin-top: 4px;
+    font-size: 18px;
+    width: 100%;
+    padding: 6px 1px;
+    box-sizing: border-box;
+}
+
+.Auth-submit-btn-wrapper{
+    width: 100%;
+}
+
+.Auth-submit-link-wrapper {
+    padding-top: 20px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.Auth-submit-btn-wrapper > button {
+    width: 100%;
+    -moz-box-shadow: 0px 3px 0px 0px black;
+    -webkit-box-shadow: 0px 3px 0px 0px black;
+    box-shadow: 0px 3px 0px 0px black;
+    background-color: #262626;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px black;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+        .Auth-submit-btn-wrapper > button:hover {
+            background-color: #141414;
+        }
+
+    .Auth-submit-btn-wrapper > button:active {
+        position: relative;
+        top: 1px;
+    }
+
+.Auth-card-span > label {
+    font-size: 14px;
+}
+
+.Auth-submit-section > label {
+    color: dimgrey;
+}
+
+.Auth-link {
+    cursor: pointer;
+}
+
+    .Auth-link:hover {
+        color: black;
+        text-decoration-line: underline;
+    }
+
+.Auth-submit-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.Auth-title-wrapper {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-bottom: solid 1px black;
+    text-align: center;
+}
+
+.Auth-title {
+    font-size: 26px !important;
+    font-weight: 700;
+}
