@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import '../../CSS/ProfileSettings.css';
 
-class ProfileSettings extends Component {
+class ProfileSettingsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,6 +17,7 @@ class ProfileSettings extends Component {
         }
     }
 
+    // Updates input fields and states on user input
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -58,13 +58,8 @@ class ProfileSettings extends Component {
             console.error(e);
             this.setState({ Error: "Error with request" })
         }
-
         // Loading Off
         this.props.LoadingOff();
-    } // NOT DEVELOPED YET
-
-    componentDidMount() {
-     //   this.props.LoadingOn(); 
     }
 
     render() {
@@ -83,35 +78,37 @@ class ProfileSettings extends Component {
         const AccountSettingsForm = () => {
             return (<div>
                 <div className="Auth-card-span Auth-title-wrapper">
-                    <label className="Auth-title">Account settings</label>
+                    <h1 className="Auth-title">Account settings</h1>
                 </div>
                 <Error />
                 <div className="Auth-card-span">
                     <label>Firstname</label>
-                    <input value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname" className="Signup-input"></input>
+                    <input value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname" className="Auth-input"></input>
                 </div>
                 <div className="Auth-card-span">
                     <label>Lastname</label>
-                    <input value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname" className="Signup-input"></input>
+                    <input value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname" className="Auth-input"></input>
                 </div>
                 <div className="Auth-card-span">
                     <label>Username</label>
-                    <input value={this.state.NewUsername} onChange={this.handleChange} id="NewUsername" name="NewUsername" className="Signup-input"></input>
+                    <input value={this.state.NewUsername} onChange={this.handleChange} id="NewUsername" name="NewUsername" className="Auth-input"></input>
                 </div>
                 <div className="Auth-card-span">
                     <label>E-mail</label>
-                    <input value={this.state.NewEmail} onChange={this.handleChange} type="Email" id="NewEmail" name="NewEmail" className="Signup-input"></input>
+                    <input value={this.state.NewEmail} onChange={this.handleChange} type="Email" id="NewEmail" name="NewEmail" className="Auth-input"></input>
                 </div>
+                
+
                 <div className="Auth-card-span Auth-title-wrapper">
-                    <label className="Auth-title">Change password</label>
+                    <h1 className="Auth-title">Change password</h1>
                 </div>
                 <div className="Auth-card-span">
                     <label>New Password</label>
-                    <input value={this.state.Email} onChange={this.handleChange} type="Email" id="Email" name="Email" className="Signup-input"></input>
+                    <input value={this.state.Email} onChange={this.handleChange} type="Email" id="Email" name="Email" className="Auth-input"></input>
                 </div>
                 <div className="Auth-card-span">
                     <label>Re- New Password</label>
-                    <input value={this.state.Email} onChange={this.handleChange} type="Email" id="Email" name="Email" className="Signup-input"></input>
+                    <input value={this.state.Email} onChange={this.handleChange} type="Email" id="Email" name="Email" className="Auth-input"></input>
                 </div>
                 <div className="Auth-card-span Auth-submit-section">
                     <div className="Auth-submit-btn-wrapper">
@@ -121,15 +118,14 @@ class ProfileSettings extends Component {
             </div>);
         }
         const ValidateForm = () => {
-
             return (<div>
                 <div className="Auth-card-span Auth-submit-section">
                     <div className="Auth-card-span Auth-title-wrapper">
-                        <label className="Auth-title">Validation</label>
+                        <h1 className="Auth-title">Validation</h1>
                     </div>
                     <div className="Auth-card-span">
                         <label>Confirm your changes with your password</label>
-                        <input value={this.state.ValidatationPassword} onChange={this.handleChange} type="Password" id="ValidatationPassword" name="ValidatationPassword" className="Signup-input"></input>
+                        <input value={this.state.ValidatationPassword} onChange={this.handleChange} type="Password" id="ValidatationPassword" name="ValidatationPassword" className="Auth-input"></input>
                     </div>
                     <div className="Auth-submit-btn-wrapper">
                         <button type="submit">Confirm change</button>
@@ -152,4 +148,4 @@ class ProfileSettings extends Component {
     }
 }
 
-export default ProfileSettings;
+export default ProfileSettingsPage;
