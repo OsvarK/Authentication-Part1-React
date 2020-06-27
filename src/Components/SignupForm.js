@@ -87,30 +87,30 @@ class SignupForm extends Component {
                         <Error />
                         <div className="Auth-card-span">
                             <label>Firstname</label>
-                            <input value={this.state.Firstname} onChange={this.handleChange} placeholder="First name..." id="Firstname" name="Firstname" className="Auth-input"></input>
+                            <input value={this.state.Firstname} onChange={this.handleChange} placeholder="First name..." id="Firstname" name="Firstname"></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>Lastname</label>
-                            <input value={this.state.Lastname} onChange={this.handleChange} placeholder="Last Name..." id="Lastname" name="Lastname" className="Auth-input"></input>
+                            <input value={this.state.Lastname} onChange={this.handleChange} placeholder="Last Name..." id="Lastname" name="Lastname"></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>Username</label>
-                            <input value={this.state.Username} onChange={this.handleChange} placeholder="Username..." id="Username" name="Username" className="Auth-input"></input>
+                            <input value={this.state.Username} onChange={this.handleChange} placeholder="Username..." id="Username" name="Username"></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>E-mail</label>
-                            <input value={this.state.Email} onChange={this.handleChange} placeholder="E-Mail..." type="Email" id="Email" name="Email" className="Auth-input"></input>
+                            <input value={this.state.Email} onChange={this.handleChange} placeholder="E-Mail..." type="Email" id="Email" name="Email"></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>Password</label>
-                            <input value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type="Password" className="Auth-input"></input>
+                            <input value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type="Password"></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>Re-enter Password</label>
-                            <input value={this.state.RePassword} onChange={this.handleChange} placeholder="Password..." id="RePassword" name="RePassword" type="Password" className="Auth-input"></input>
+                            <input value={this.state.RePassword} onChange={this.handleChange} placeholder="Password..." id="RePassword" name="RePassword" type="Password"></input>
                         </div>
                         <div className="Auth-card-span Auth-submit-section">
-                            <div className="Auth-submit-btn-wrapper">
+                            <div className="submit-btn-wrapper">
                                 <button type="submit">Signup</button>
                             </div>
                             <div className="Auth-submit-link-wrapper">

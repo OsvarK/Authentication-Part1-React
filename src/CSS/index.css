@@ -1,13 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100&family=Roboto:wght@300;500&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    background-color: #D3D0D0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input {
+    margin-top: 4px;
+    font-size: 18px;
+    width: 100%;
+    padding: 6px 4px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: solid #D3D0D0 0.5px;
+}
+
+.floating-card {
+    border-radius: 6px;
+    background-color: #EBEBEB;
+    padding: 15px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.floating-card-wrapper {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 340px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn-wrapper > button {
+    width: 100%;
+    -moz-box-shadow: 0px 3px 0px 0px #1f833d;
+    -webkit-box-shadow: 0px 3px 0px 0px #1f833d;
+    box-shadow: 0px 3px 0px 0px #1f833d;
+    background-color: #3aac5c;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+    .submit-btn-wrapper > button:hover {
+        transform: translateY(2px);
+        background-color: #3aac5c;
+        -moz-box-shadow: 0px 3px 0px 0px #3aac5c;
+        -webkit-box-shadow: 0px 3px 0px 0px #3aac5c;
+        box-shadow: 0px 3px 0px 0px #3aac5c;
+    }
+
+    .submit-btn-wrapper > button:active {
+        position: relative;
+        top: 1px;
+    }
+
+.ProfileSettings-Wrapper{
+    margin-top: 50px;
+}
+
+.Profile-Settings-ChangePasswordButton{
+    margin-top: 20px;
+    text-align: center;
+    color: #c42b2b;
+    cursor: pointer;
+}
+
+    .Profile-Settings-ChangePasswordButton > * {
+        cursor: pointer;
+    }
+        .Profile-Settings-ChangePasswordButton > *:hover {
+            color: #ff4747;
+        }
+
+
+@media screen and (max-width: 992px) {
+    .floating-card-wrapper {
+        margin-top: 5%;
+
+        width: 100%;
+    }
+
+
+    .Profile-Settings-ChangePasswordButton {
+        margin-bottom: 30px;
+    }
 }

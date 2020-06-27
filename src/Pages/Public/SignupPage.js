@@ -7,11 +7,9 @@ class SignupPage extends Component {
     render() {
         return (
             <div>
-                <div className="Auth-Wrapper">
-                    <div className="Auth-Container">
-                        <div className="Auth-Card">                          
-                            <SignupForm />
-                        </div>
+                <div className="floating-card-wrapper">
+                    <div className="floating-card">                          
+                        <SignupForm />
                     </div>
                 </div>
             </div>

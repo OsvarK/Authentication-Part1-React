@@ -6,12 +6,10 @@ class LoginPage extends Component {
     render() {
         return (
             <div>               
-                <div className="Auth-Wrapper">
-                    <div className="Auth-Container">       
-                        <div className="Auth-Card">                            
-                            <LoginForm />
-                        </div>
-                    </div>                    
+                <div className="floating-card-wrapper">
+                    <div className="floating-card">
+                        <LoginForm />
+                    </div>               
                 </div>
             </div>
         );

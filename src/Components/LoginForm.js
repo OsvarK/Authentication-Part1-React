@@ -81,14 +81,14 @@ class LoginForm extends Component {
                         <Error />
                         <div className="Auth-card-span">
                             <label>Username</label>
-                            <input value={this.state.Username} onChange={this.handleChange} id="Username" name="Username" placeholder="Username..." className="Auth-input"></input>
+                            <input value={this.state.Username} onChange={this.handleChange} id="Username" name="Username" placeholder="Username..."></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>Password</label>
-                            <input value={this.state.Password} onChange={this.handleChange} id="Password" name="Password" type="Password" placeholder="Password..." className="Auth-input"></input>
+                            <input value={this.state.Password} onChange={this.handleChange} id="Password" name="Password" type="Password" placeholder="Password..."></input>
                         </div>
                         <div className="Auth-card-span Auth-submit-section">
-                            <div className="Auth-submit-btn-wrapper">
+                            <div className="submit-btn-wrapper">
                                 <button type="submit">Login</button>
                             </div>
                             <div className="Auth-submit-link-wrapper">
