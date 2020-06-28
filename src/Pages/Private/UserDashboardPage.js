@@ -11,7 +11,7 @@ class UserDashboard extends Component {
 
     render() {
         return (
-            <div className="floating-card-wrapper">
+            <div className="floating-card-wrapper floating-card">
                 <div>
                     <h5 className="userdash-account-login-header" >You are currently logged in as:</h5>
                     <UserProfile/>

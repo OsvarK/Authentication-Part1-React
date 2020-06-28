@@ -38,7 +38,6 @@
     text-decoration-line: none;
 }
     .Auth-link:hover {
-        color: black;
         text-decoration-line: underline;
         color: #3057d7;
     }

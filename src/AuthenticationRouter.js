@@ -58,7 +58,7 @@ class AuthenticationRouter extends Component {
                     return (<Route {...rest} render={(props) => (<Component {...props} />)} />)
                 } else {
                     // We are authenticated, Redirect
-                    return (<Redirect to='/auth' />)
+                    return (<Redirect to='/myprofile' />)
                 }
             }
         }
@@ -70,7 +70,7 @@ class AuthenticationRouter extends Component {
                     <Router>
                         <Switch>
                             {/* Private Routes -------------------------------------------------------- */}
-                            <PrivateRoute path='/auth' component={() => <UserDashboard />} />
+                            <PrivateRoute path='/myprofile' component={() => <UserDashboard />} />
                             {/* Public Routes --------------------------------------------------------- */}
                             <PublicRoute path="/login" component={() => <LoginPage />} />
                             <PublicRoute path="/signup" component={() => <SignupPage />} />

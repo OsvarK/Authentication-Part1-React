@@ -52,6 +52,16 @@ input {
     margin-right: 10px;
 }
 
+    .submit-btn-wrapper > button:disabled {
+        background-color: #808080;
+        cursor: default;
+        pointer-events: none;
+        -moz-box-shadow: 0px 3px 0px 0px #6b6b6b;
+        -webkit-box-shadow: 0px 3px 0px 0px #6b6b6b;
+        box-shadow: 0px 3px 0px 0px #6b6b6b;
+    }
+
+
     .submit-btn-wrapper > button:hover {
         transform: translateY(2px);
         background-color: #3aac5c;

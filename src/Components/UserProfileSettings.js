@@ -15,8 +15,10 @@ class UserProfileSettingsPage extends Component {
             Error: null,
             Loading: false,
             Validate: false,
-            ChangePassword: false
+            ChangePassword: false,
+            confirmBtnStatus: false
         }
+        this.clearAllInputStates = this.clearAllInputStates.bind(this);
     }
 
     
@@ -27,12 +29,67 @@ class UserProfileSettingsPage extends Component {
 
     // Updates input fields and states on user input
     handleChange = (e) => {
+        this.forceUpdate();
         this.setState({
             [e.target.name]: e.target.value
+        }, () => {
+                // if in the validation phase.
+                if (this.state.Validate) {
+                    if (this.isNotEmpty(this.state.ValidatationPassword)) {
+                        this.setState({ confirmBtnStatus: true });
+                    } else {
+                        this.setState({ confirmBtnStatus: false });
+                    }
+                }
+                // if not the validation phase.
+                else {
+                    // if in the change password section.
+                    if (this.state.ChangePassword) {
+                        if (this.isNotEmpty(this.state.NewPassword) && this.isNotEmpty(this.state.NewRePassword)) {
+                            this.setState({ confirmBtnStatus: true });
+                        } else {
+                            this.setState({ confirmBtnStatus: false });
+                        }
+                    }
+                    // if NOT in the change password section.
+                    else if (!this.state.ChangePassword) {
+                        if (this.isNotEmpty(this.state.NewFirstname) || this.isNotEmpty(this.state.NewLastname) || this.isNotEmpty(this.state.NewUsername) ||
+                            this.isNotEmpty(this.state.NewEmail)) {
+                            this.setState({ confirmBtnStatus: true });
+                        } else {
+                            this.setState({ confirmBtnStatus: false });
+                        }
+                    }                 
+                }
         });
-
     }
 
+    isNotEmpty(value) {
+        return !(value == null || value.length === 0);
+    }
+
+    clearAllInputStates() {
+        this.setState({
+            NewFirstname: null,
+            NewLastname: null,
+            NewUsername: null,
+            NewEmail: null,
+            NewPassword: null,
+            NewRePassword: null,
+            ValidatationPassword: null,
+            confirmBtnStatus: false
+        });
+        if (this.state.ChangePassword) {
+            this.setState({ ChangePassword: false });
+
+        } else {
+            this.setState({ ChangePassword: true });
+        }
+        var elements = document.getElementsByTagName("input");
+        for (var ii = 0; ii < elements.length; ii++) {
+            elements[ii].value = "";
+        }
+    }
 
     handleSubmit = async (e) => {
         // Loading on
@@ -116,16 +173,10 @@ class UserProfileSettingsPage extends Component {
                                     </div>
                                     <div className="Auth-card-span Auth-submit-section">
                                         <div className="submit-btn-wrapper">
-                                            <button onClick={() => this.setState({ Validate: true })} >Confirm change</button>
+                                            <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ Validate: true, confirmBtnStatus: false })} >Confirm change</button>
                                         </div>
                                     </div>
-                                    <div onClick={() => this.setState({
-                                        ChangePassword: true,
-                                        NewFirstname: null,
-                                        NewLastname: null,
-                                        NewUsername: null,
-                                        NewEmail: null,
-                                    })} className="Profile-Settings-ChangePasswordButton">
+                                    <div onClick={this.clearAllInputStates} className="Profile-Settings-ChangePasswordButton">
                                         <label>Change password</label>
                                     </div>
                                 </div>
@@ -145,15 +196,10 @@ class UserProfileSettingsPage extends Component {
                                         </div>
                                         <div className="Auth-card-span Auth-submit-section">
                                             <div className="submit-btn-wrapper">
-                                                <button onClick={() => this.setState({ Validate: true })} >Confirm change</button>
+                                                <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ Validate: true, confirmBtnStatus: false })} >Confirm change</button>
                                             </div>
                                         </div>
-                                        <div onClick={() => this.setState({
-                                            ChangePassword: false,
-                                            NewPassword: null,
-                                            NewRePassword: null,
-                                        })}
-                                            className="Profile-Settings-ChangePasswordButton">
+                                        <div onClick={this.clearAllInputStates} className="Profile-Settings-ChangePasswordButton">
                                             <label>Back</label>
                                         </div>
                                     </div>
@@ -169,7 +215,10 @@ class UserProfileSettingsPage extends Component {
                                         <input value={this.state.ValidatationPassword} onChange={this.handleChange} type="Password" id="ValidatationPassword" name="ValidatationPassword"></input>
                                     </div>
                                     <div className="submit-btn-wrapper">
-                                        <button type="submit">Confirm change</button>
+                                            <button disabled={!this.state.confirmBtnStatus} type="submit">Confirm change</button>
+                                    </div>
+                                        <div onClick={() => this.setState({ ValidatationPassword: null, Validate: false, confirmBtnStatus: true})} className="Profile-Settings-ChangePasswordButton">
+                                        <label>Back</label>
                                     </div>
                                 </div>
                             </div>
