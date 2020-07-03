@@ -7,23 +7,61 @@ class SignupForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Firstname: null,
-            Lastname: null,
-            Username: null,
-            Email: null,
-            Password: null,
-            RePassword: null,
+            Firstname: "",
+            Lastname: "",
+            Username: "",
+            Email: "",
+            Password: "",
             Error: null,
-            Loading: false
+            Loading: false,
+            showPassword: "Password",
+            disabledSubmit: true,
+            pasCheck: {
+                pasHaveLowercase: "red",
+                pasHaveUppsercase: "red",
+                pasHasNumber: "red",
+                pasHasSymbol: "red",
+                pasHasLenght: "red",                      
+            }
         }
     }
 
     // Updates input fields and states on user input
     handleChange = (e) => {
+        this.forceUpdate();
         this.setState({
             [e.target.name]: e.target.value
+        }, () => {           
+
+                // Validate password
+                var pas = new String(this.state.Password);
+
+                var pasHaveLowercase = (/[a-z]/.test(pas));
+                var pasHaveUppsercase = (/[A-Z]/.test(pas));
+                var pasHasNumber = (/\d/.test(pas));
+                var pasHasSymbol = (pas.match(/[|\\/~^:,;?!&%$@*+]/));
+                var pasHasLenght = (pas.length >= 8);                  
+                this.setState({
+                    pasCheck: {
+                        pasHaveLowercase: (pasHaveLowercase ? 'green' : 'red'),
+                        pasHaveUppsercase: (pasHaveUppsercase ? 'green' : 'red'),
+                        pasHasNumber: (pasHasNumber ? 'green' : 'red'),
+                        pasHasSymbol: (pasHasSymbol ? 'green' : 'red'),
+                        pasHasLenght: (pasHasLenght ? 'green' : 'red'),  
+                    }
+                })
+                // Validate that all fields are NOT empty
+                if (pasHaveLowercase && pasHaveUppsercase &&
+                    pasHasNumber && pasHasSymbol && pasHasLenght &&
+                    this.state.Firstname !== "" && this.state.Lastname !== "" && this.state.Email !== "" && this.state.Username !== "") {
+                    this.setState({ disabledSubmit: false });
+                } else {
+                    this.setState({ disabledSubmit: true });
+                }
         });
     }
+
+
     
     handleSubmit = async(e) => {
         e.preventDefault();
@@ -82,17 +120,18 @@ class SignupForm extends Component {
                 {this.state.Loading === true ? (<Loading />) : (
                     <form onSubmit={this.handleSubmit}>
                         <div className="Auth-card-span Auth-title-wrapper">
-                            <h1 className="Auth-title">Signup Form</h1>
+                            <h1 className="Auth-title">Register</h1>
                         </div>
                         <Error />
+
                         <div className="Auth-card-span">
-                            <label>Firstname</label>
-                            <input value={this.state.Firstname} onChange={this.handleChange} placeholder="First name..." id="Firstname" name="Firstname"></input>
+                            <label>Full name</label>
+                            <div style={{ display: "flex" }}>
+                                <input style={{ float: "left", marginRight: "5px"}} value={this.state.Firstname} onChange={this.handleChange} placeholder="First..." id="Firstname" name="Firstname"></input>
+                                <input style={{ float: "right", marginleft: "5px" }} value={this.state.Lastname} onChange={this.handleChange} placeholder="Last..." id="Lastname" name="Lastname"></input>
+                            </div>                             
                         </div>
-                        <div className="Auth-card-span">
-                            <label>Lastname</label>
-                            <input value={this.state.Lastname} onChange={this.handleChange} placeholder="Last Name..." id="Lastname" name="Lastname"></input>
-                        </div>
+
                         <div className="Auth-card-span">
                             <label>Username</label>
                             <input value={this.state.Username} onChange={this.handleChange} placeholder="Username..." id="Username" name="Username"></input>
@@ -103,15 +142,23 @@ class SignupForm extends Component {
                         </div>
                         <div className="Auth-card-span">
                             <label>Password</label>
-                            <input value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type="Password"></input>
-                        </div>
-                        <div className="Auth-card-span">
-                            <label>Re-enter Password</label>
-                            <input value={this.state.RePassword} onChange={this.handleChange} placeholder="Password..." id="RePassword" name="RePassword" type="Password"></input>
+                            
+                            <div style={{display: "flex"}}>
+                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
+                                <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({showPassword: "Text"})} className="fa fa-eye" aria-hidden="true"></i>
+                            </div>
+                            <div className="password-security-hints">
+                                <label>Password requirements.</label>
+                                <label className={this.state.pasCheck.pasHaveLowercase}>One lowercase charachter</label>
+                                <label className={this.state.pasCheck.pasHaveUppsercase}>One uppsercase charachter</label>
+                                <label className={this.state.pasCheck.pasHasNumber}>One number</label>
+                                <label className={this.state.pasCheck.pasHasSymbol}>One special charachter</label>
+                                <label className={this.state.pasCheck.pasHasLenght}>8 characters minimum</label>    
+                            </div>
                         </div>
                         <div className="Auth-card-span Auth-submit-section">
                             <div className="submit-btn-wrapper">
-                                <button type="submit">Signup</button>
+                                <button disabled={this.state.disabledSubmit} type="submit">Signup</button>
                             </div>
                             <div className="Auth-submit-link-wrapper">
                                 <label> Already have an account? <Link to= '/login' className="Auth-link">Login!</Link></label>

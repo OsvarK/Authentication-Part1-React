@@ -58,4 +58,51 @@
     font-size: 20px !important;
     font-weight: 400;
 }
+.Auth-card-span > div > i {
+    float: right;
+    margin-top: 4px;
+    font-size: 18px;
+    padding: 6px 10px;
+    border-radius: 0 4px 4px 0;
+    background-color: #dcdcdc;
+    border: solid #D3D0D0 0.5px;
+    color: #707070;
+    cursor: pointer;
+    border-left: none;
+    z-index: 0;
+}
+.Auth-card-span > div > i:hover {
+    color: black;
+}
 
+
+
+
+.password-security-hints {
+    margin: 14px 0 50px 0;
+}
+
+    .password-security-hints > label {
+        margin: 0 2px;
+        width: 100%;
+        font-size: 14px;
+        display: inline-block;
+        
+    }
+
+        .password-security-hints > label:nth-child(1) {
+            margin: 6px 2px;
+            width: 100%;
+            font-size: 20px;
+            display: inline-block;
+            color: #707070;
+        }
+
+
+.green {
+    color: #2aff00
+}
+
+.red {
+    color: #ff7979
+}

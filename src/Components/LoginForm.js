@@ -11,7 +11,8 @@ class LoginForm extends Component {
             Username: null,
             Password: null,
             Error: null,
-            Loading: false
+            Loading: false,
+            showPassword: "Password"
         }
     }
     
@@ -85,14 +86,17 @@ class LoginForm extends Component {
                         </div>
                         <div className="Auth-card-span">
                             <label>Password</label>
-                            <input value={this.state.Password} onChange={this.handleChange} id="Password" name="Password" type="Password" placeholder="Password..."></input>
+                            <div style={{ display: "flex" }}>
+                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
+                                <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                            </div>    
                         </div>
                         <div className="Auth-card-span Auth-submit-section">
                             <div className="submit-btn-wrapper">
                                 <button type="submit">Login</button>
                             </div>
                             <div className="Auth-submit-link-wrapper">
-                                <label> Need an account? <Link to= '/signup' className="Auth-link">Signup!</Link></label>
+                                <label> Need an account? <Link to= '/register' className="Auth-link">Signup!</Link></label>
                             </div>
                         </div>
                     </form>

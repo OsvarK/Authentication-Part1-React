@@ -73,7 +73,7 @@ class AuthenticationRouter extends Component {
                             <PrivateRoute path='/myprofile' component={() => <UserDashboard />} />
                             {/* Public Routes --------------------------------------------------------- */}
                             <PublicRoute path="/login" component={() => <LoginPage />} />
-                            <PublicRoute path="/signup" component={() => <SignupPage />} />
+                            <PublicRoute path="/register" component={() => <SignupPage />} />
                             {/* Index Route ----------------------------------------------------------- */}
                             <PublicRoute path="/" component={() => <LoginPage />} />
                         </Switch>
