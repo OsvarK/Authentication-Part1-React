@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../CSS/Auth.css';
 import LoginForm from '../../Components/LoginForm';
 
 class LoginPage extends Component {

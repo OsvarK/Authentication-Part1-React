@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import '../CSS/Loading.css';
 import Loading from './Loading';
 import { Link } from 'react-router-dom';
 
@@ -96,7 +95,7 @@ class LoginForm extends Component {
                                 <button type="submit">Login</button>
                             </div>
                             <div className="Auth-submit-link-wrapper">
-                                <label> Need an account? <Link to= '/register' className="Auth-link">Signup!</Link></label>
+                                <label> Need an account? <Link to='/register' id="link">Signup!</Link></label>
                             </div>
                         </div>
                     </form>

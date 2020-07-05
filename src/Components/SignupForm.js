@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../CSS/Auth.css';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 
@@ -32,14 +31,13 @@ class SignupForm extends Component {
         this.setState({
             [e.target.name]: e.target.value
         }, () => {           
-
                 // Validate password
                 var pas = new String(this.state.Password);
 
                 var pasHaveLowercase = (/[a-z]/.test(pas));
                 var pasHaveUppsercase = (/[A-Z]/.test(pas));
                 var pasHasNumber = (/\d/.test(pas));
-                var pasHasSymbol = (pas.match(/[|\\/~^:,;?!&%$@*+]/));
+                var pasHasSymbol = (/[ `!@#$%^&*()_/+\-=\][{};':"\\|,.<>?~]/.test(pas));
                 var pasHasLenght = (pas.length >= 8);                  
                 this.setState({
                     pasCheck: {
@@ -127,8 +125,8 @@ class SignupForm extends Component {
                         <div className="Auth-card-span">
                             <label>Full name</label>
                             <div style={{ display: "flex" }}>
-                                <input style={{ float: "left", marginRight: "5px"}} value={this.state.Firstname} onChange={this.handleChange} placeholder="First..." id="Firstname" name="Firstname"></input>
-                                <input style={{ float: "right", marginleft: "5px" }} value={this.state.Lastname} onChange={this.handleChange} placeholder="Last..." id="Lastname" name="Lastname"></input>
+                                <input style={{ float: "left", marginRight: "5px"}} value={this.state.Firstname} onChange={this.handleChange} placeholder="Firstname..." id="Firstname" name="Firstname"></input>
+                                <input style={{ float: "right", marginleft: "5px" }} value={this.state.Lastname} onChange={this.handleChange} placeholder="Lastname..." id="Lastname" name="Lastname"></input>
                             </div>                             
                         </div>
 
@@ -161,7 +159,7 @@ class SignupForm extends Component {
                                 <button disabled={this.state.disabledSubmit} type="submit">Signup</button>
                             </div>
                             <div className="Auth-submit-link-wrapper">
-                                <label> Already have an account? <Link to= '/login' className="Auth-link">Login!</Link></label>
+                                <label> Already have an account? <Link to= '/login' id="link">Login!</Link></label>
                             </div>
                         </div>
                     </form>

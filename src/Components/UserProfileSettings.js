@@ -10,13 +10,20 @@ class UserProfileSettingsPage extends Component {
             NewUsername: null,
             NewEmail: null,
             NewPassword: null,
-            NewRePassword: null,
             ValidatationPassword: null,
             Error: null,
             Loading: false,
             Validate: false,
             ChangePassword: false,
-            confirmBtnStatus: false
+            confirmBtnStatus: false,
+            showPassword: "password",
+            pasCheck: {
+                pasHaveLowercase: "red",
+                pasHaveUppsercase: "red",
+                pasHasNumber: "red",
+                pasHasSymbol: "red",
+                pasHasLenght: "red",
+            }
         }
         this.clearAllInputStates = this.clearAllInputStates.bind(this);
     }
@@ -45,7 +52,26 @@ class UserProfileSettingsPage extends Component {
                 else {
                     // if in the change password section.
                     if (this.state.ChangePassword) {
-                        if (this.isNotEmpty(this.state.NewPassword) && this.isNotEmpty(this.state.NewRePassword)) {
+                        // Validate password
+                        var pas = new String(this.state.NewPassword);
+                        var pasHaveLowercase = (/[a-z]/.test(pas));
+                        var pasHaveUppsercase = (/[A-Z]/.test(pas));
+                        var pasHasNumber = (/\d/.test(pas));
+                        var pasHasSymbol = (/[ `!@#$%^&*()_/+\-=\][{};':"\\|,.<>?~]/.test(pas));
+                        var pasHasLenght = (pas.length >= 8);
+                        this.setState({
+                            pasCheck: {
+                                pasHaveLowercase: (pasHaveLowercase ? 'green' : 'red'),
+                                pasHaveUppsercase: (pasHaveUppsercase ? 'green' : 'red'),
+                                pasHasNumber: (pasHasNumber ? 'green' : 'red'),
+                                pasHasSymbol: (pasHasSymbol ? 'green' : 'red'),
+                                pasHasLenght: (pasHasLenght ? 'green' : 'red'),
+                            }
+                        })
+                        // Validate that all fields are NOT empty
+                        if (pasHaveLowercase && pasHaveUppsercase &&
+                            pasHasNumber && pasHasSymbol && pasHasLenght &&
+                            this.state.Firstname !== "" && this.state.Lastname !== "" && this.state.Email !== "" && this.state.Username !== "") {
                             this.setState({ confirmBtnStatus: true });
                         } else {
                             this.setState({ confirmBtnStatus: false });
@@ -75,9 +101,15 @@ class UserProfileSettingsPage extends Component {
             NewUsername: null,
             NewEmail: null,
             NewPassword: null,
-            NewRePassword: null,
             ValidatationPassword: null,
-            confirmBtnStatus: false
+            confirmBtnStatus: false,
+            pasCheck: {
+                pasHaveLowercase: "red",
+                pasHaveUppsercase: "red",
+                pasHasNumber: "red",
+                pasHasSymbol: "red",
+                pasHasLenght: "red",
+            }
         });
         if (this.state.ChangePassword) {
             this.setState({ ChangePassword: false });
@@ -145,12 +177,12 @@ class UserProfileSettingsPage extends Component {
         }
 
         return (
-            <div className="Auth-Wrapper">    
-                <div className="Auth-Card">
+            <div>    
+                <div>
                     <form onSubmit={this.handleSubmit}>
                         {this.state.Validate === false ? (
                             this.state.ChangePassword === false ? (
-                                <div className="ProfileSettings-Wrapper">
+                                <div className="profile-settings">
                                     <div style={{ padding: "5px 0 0 0 " }} className="Auth-card-span Auth-title-wrapper">
                                         <h1 style={{ color: "#707070" }} className="Auth-title">Edit User Profile</h1>
                                     </div>
@@ -181,18 +213,25 @@ class UserProfileSettingsPage extends Component {
                                     </div>
                                 </div>
                             ) : (                                    
-                                    <div className="ProfileSettings-Wrapper">
+                                    <div className="profile-settings">
                                         <div style={{ padding: "5px 0 0 0 " }} className="Auth-card-span Auth-title-wrapper">
                                             <h1 style={{ color: "#707070" }} className="Auth-title">Change Password</h1>
                                         </div>
                                         <Error />
                                         <div className="Auth-card-span">
                                             <label>New Password</label>
-                                            <input value={this.state.NewPassword} onChange={this.handleChange} id="NewPassword" name="NewPassword"></input>
-                                        </div>
-                                        <div className="Auth-card-span">
-                                            <label>Re-Enter New Password</label>
-                                            <input value={this.state.NewRePassword} onChange={this.handleChange} id="NewRePassword" name="NewRePassword"></input>
+                                            <div style={{ display: "flex" }}>
+                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="New Password..." id="NewPassword" name="NewPassword" type={this.state.showPassword}></input>
+                                                <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                            </div>
+                                            <div className="password-security-hints">
+                                                <label>Password requirements.</label>
+                                                <label className={this.state.pasCheck.pasHaveLowercase}>One lowercase charachter</label>
+                                                <label className={this.state.pasCheck.pasHaveUppsercase}>One uppsercase charachter</label>
+                                                <label className={this.state.pasCheck.pasHasNumber}>One number</label>
+                                                <label className={this.state.pasCheck.pasHasSymbol}>One special charachter</label>
+                                                <label className={this.state.pasCheck.pasHasLenght}>8 characters minimum</label>
+                                            </div>
                                         </div>
                                         <div className="Auth-card-span Auth-submit-section">
                                             <div className="submit-btn-wrapper">
@@ -205,14 +244,17 @@ class UserProfileSettingsPage extends Component {
                                     </div>
                                 )      
                         ): (
-                                <div className = "ProfileSettings-Wrapper">
+                                <div className= "profile-settings">
                                 <div className = "Auth-card-span Auth-submit-section">
                                     <div className = "Auth-card-span Auth-title-wrapper">
                                         <h1 style={{ color: "#c42b2b" }} className = "Auth-title">Validation</h1>
                                     </div>
                                     <div className="Auth-card-span">
-                                        <label>Confirm your changes with your password</label>
-                                        <input value={this.state.ValidatationPassword} onChange={this.handleChange} type="Password" id="ValidatationPassword" name="ValidatationPassword"></input>
+                                            <label>Confirm your changes with your password</label>
+                                            <div style={{ display: "flex" }}>
+                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.ValidatationPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="Password..." id="ValidatationPassword" name="ValidatationPassword" type={this.state.showPassword}></input>
+                                                <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                            </div>
                                     </div>
                                     <div className="submit-btn-wrapper">
                                             <button disabled={!this.state.confirmBtnStatus} type="submit">Confirm change</button>

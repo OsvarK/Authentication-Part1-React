@@ -1,4 +1,193 @@
 
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100&family=Roboto:wght@300;500&display=swap');
+
+body {
+    margin: 0;
+    background-color: #D3D0D0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+    margin-top: 4px;
+    font-size: 18px;
+    width: 100%;
+    padding: 6px 4px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: solid #D3D0D0 0.5px;
+    z-index: 1;
+}
+
+.floating-card {
+    border-radius: 6px;
+    background-color: #EBEBEB;
+    padding: 15px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#link {
+    color: #7192FF;
+    cursor: pointer;
+}
+
+    #link:hover {
+        text-decoration-line: underline;
+        color: #3057d7;
+    }
+
+.floating-card-wrapper {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 340px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn-wrapper > button {
+    width: 100%;
+    -moz-box-shadow: 0px 3px 0px 0px #1f833d;
+    -webkit-box-shadow: 0px 3px 0px 0px #1f833d;
+    box-shadow: 0px 3px 0px 0px #1f833d;
+    background-color: #3aac5c;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+    .submit-btn-wrapper > button:disabled {
+        background-color: #808080;
+        cursor: default;
+        pointer-events: none;
+        -moz-box-shadow: 0px 3px 0px 0px #6b6b6b;
+        -webkit-box-shadow: 0px 3px 0px 0px #6b6b6b;
+        box-shadow: 0px 3px 0px 0px #6b6b6b;
+    }
+
+
+    .submit-btn-wrapper > button:hover {
+        transform: translateY(2px);
+        background-color: #3aac5c;
+        -moz-box-shadow: 0px 3px 0px 0px #3aac5c;
+        -webkit-box-shadow: 0px 3px 0px 0px #3aac5c;
+        box-shadow: 0px 3px 0px 0px #3aac5c;
+    }
+
+    .submit-btn-wrapper > button:active {
+        position: relative;
+        top: 1px;
+    }
+
+.profile-settings {
+    margin-top: 30px;
+}
+
+.profile-settings-ChangePasswordButton {
+    margin-top: 20px;
+    text-align: center;
+    color: #c42b2b;
+    cursor: pointer;
+}
+
+    .Profile-Settings-ChangePasswordButton  * {
+        cursor: pointer;
+    }
+
+        .Profile-Settings-ChangePasswordButton  *:hover {
+            color: #ff4747;
+        }
+
+
+@media screen and (max-width: 992px) {
+    .floating-card-wrapper {
+        margin-top: 5%;
+        width: 100%;
+    }
+
+
+    .Profile-Settings-ChangePasswordButton {
+        margin-bottom: 30px;
+    }
+}
+
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+.user-profile {
+    display: flex;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+}
+
+.user-profile-content {
+    margin-top: 5px;
+}
+
+.user-profile-content--right {
+    height: auto;
+    width: 200px;
+    margin-left: 20px;
+    padding-top:12px;
+}
+
+    .user-profile-content--right label {        
+        display: block;
+        font-size: 12px;
+        color: #707070;
+    }
+
+    .user-profile-content--right label:nth-child(1) {
+        font-size: 20px;
+    }
+
+
+.user-profile-content--left > img {
+    margin-top: 5px;
+    border-radius: 5px;
+    object-fit: cover;
+    height: 80px;
+    width: 80px;
+    border: solid 0.2px #707070;
+}
+
 .Auth-error-Wrapper {
     background-color: red;
     padding: 1px;
@@ -105,4 +294,183 @@
 
 .red {
     color: #ff7979
+}
+
+.submit-btn-wrapper > button {
+    width: 100%;
+    -moz-box-shadow: 0px 3px 0px 0px #1f833d;
+    -webkit-box-shadow: 0px 3px 0px 0px #1f833d;
+    box-shadow: 0px 3px 0px 0px #1f833d;
+    background-color: #3aac5c;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+    .submit-btn-wrapper > button:disabled {
+        background-color: #808080;
+        cursor: default;
+        pointer-events: none;
+        -moz-box-shadow: 0px 3px 0px 0px #6b6b6b;
+        -webkit-box-shadow: 0px 3px 0px 0px #6b6b6b;
+        box-shadow: 0px 3px 0px 0px #6b6b6b;
+    }
+
+
+    .submit-btn-wrapper > button:hover {
+        transform: translateY(2px);
+        background-color: #3aac5c;
+        -moz-box-shadow: 0px 3px 0px 0px #3aac5c;
+        -webkit-box-shadow: 0px 3px 0px 0px #3aac5c;
+        box-shadow: 0px 3px 0px 0px #3aac5c;
+    }
+
+    .submit-btn-wrapper > button:active {
+        position: relative;
+        top: 1px;
+    }
+
+.ProfileSettings-Wrapper {
+    margin-top: 50px;
+}
+
+.Profile-Settings-ChangePasswordButton {
+    margin-top: 20px;
+    text-align: center;
+    color: #c42b2b;
+    cursor: pointer;
+}
+
+    .Profile-Settings-ChangePasswordButton > * {
+        cursor: pointer;
+    }
+
+        .Profile-Settings-ChangePasswordButton > *:hover {
+            color: #ff4747;
+        }
+
+
+@media screen and (max-width: 992px) {
+    .floating-card-wrapper {
+        margin-top: 5%;
+        width: 100%;
+    }
+
+
+    .Profile-Settings-ChangePasswordButton {
+        margin-bottom: 30px;
+    }
+}
+
+.Loading-wrapper {
+    text-align: center;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+    .lds-ellipsis div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #626262;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+        .lds-ellipsis div:nth-child(1) {
+            left: 8px;
+            animation: lds-ellipsis1 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(2) {
+            left: 8px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(3) {
+            left: 32px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(4) {
+            left: 56px;
+            animation: lds-ellipsis3 0.6s infinite;
+        }
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+.user-profile {
+    display: flex;
+    border-radius: 5px;
+    padding: 10px 20px 20px 20px;
+    background-color: white;
+}
+
+.user-profile-content {
+    margin-top: 5px;
+}
+
+.user-profile-content--right {
+    height: auto;
+    width: 200px;
+    margin-left: 20px;
+    padding-top: 12px;
+}
+
+    .user-profile-content--right label {
+        display: block;
+        font-size: 12px;
+        color: #707070;
+    }
+        .user-profile-content--right label:nth-child(1) {
+            font-size: 20px;
+        }
+
+.user-profile-content--left > img {
+    margin-top: 5px;
+    border-radius: 5px;
+    object-fit: cover;
+    height: 80px;
+    width: 80px;
+    border: solid 0.2px #707070;
 }

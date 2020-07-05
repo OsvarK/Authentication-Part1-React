@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './CSS/index.css';
+import './CSS/Main.css';
 import AuthenticationRouter from './AuthenticationRouter';
 
 ReactDOM.render(

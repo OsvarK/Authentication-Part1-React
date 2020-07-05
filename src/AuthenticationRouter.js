@@ -1,7 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { AuthenticationProvider, AuthenticationContext } from './Contexts/AuthenticationContext';
-
+import './CSS/Auth.css';
 // Imported components
 import Loading from './Components/Loading';
 import LoginPage from './Pages/Public/LoginPage';

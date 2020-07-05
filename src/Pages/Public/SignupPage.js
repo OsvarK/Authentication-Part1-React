@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import '../../CSS/Auth.css';
 import SignupForm from '../../Components/SignupForm';
-
 
 class SignupPage extends Component {
     render() {
