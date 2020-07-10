@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react';
+import React, { Component } from 'react';
 import { AuthenticationContext } from './../Contexts/AuthenticationContext';
 
 class UserProfileSettingsPage extends Component {
@@ -177,7 +177,7 @@ class UserProfileSettingsPage extends Component {
         }
 
         return (
-            <div>    
+            <div>                
                 <div>
                     <form onSubmit={this.handleSubmit}>
                         {this.state.Validate === false ? (
@@ -208,7 +208,7 @@ class UserProfileSettingsPage extends Component {
                                             <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ Validate: true, confirmBtnStatus: false })} >Confirm change</button>
                                         </div>
                                     </div>
-                                    <div onClick={this.clearAllInputStates} className="Profile-Settings-ChangePasswordButton">
+                                    <div onClick={this.clearAllInputStates} className="Profile-Settings-redlink">
                                         <label>Change password</label>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@ class UserProfileSettingsPage extends Component {
                                                 <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ Validate: true, confirmBtnStatus: false })} >Confirm change</button>
                                             </div>
                                         </div>
-                                        <div onClick={this.clearAllInputStates} className="Profile-Settings-ChangePasswordButton">
+                                        <div onClick={this.clearAllInputStates} className="Profile-Settings-redlink">
                                             <label>Back</label>
                                         </div>
                                     </div>
@@ -259,7 +259,7 @@ class UserProfileSettingsPage extends Component {
                                     <div className="submit-btn-wrapper">
                                             <button disabled={!this.state.confirmBtnStatus} type="submit">Confirm change</button>
                                     </div>
-                                        <div onClick={() => this.setState({ ValidatationPassword: null, Validate: false, confirmBtnStatus: true})} className="Profile-Settings-ChangePasswordButton">
+                                    <div onClick={() => this.setState({ ValidatationPassword: null, Validate: false, confirmBtnStatus: true})} className="Profile-Settings-redlink">
                                         <label>Back</label>
                                     </div>
                                 </div>

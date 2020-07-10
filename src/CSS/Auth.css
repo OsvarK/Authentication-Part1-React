@@ -42,12 +42,19 @@
     }
 
 .profile-settings {
-    margin: auto;
-    margin-top: 20px;
+    margin-top: 30px;
+    padding-bottom: 10px;
     width: 20rem;
     align-self: center;
+    border-top: solid #D3D0D0 0.5px;
+    border-bottom: solid #D3D0D0 0.5px;
 }
 
+    .profile-settings h1 {
+        margin: 0;
+        padding: 0;
+        padding-top: 12px;
+    }
 
 .user-profile {
     align-self: center;
@@ -120,7 +127,8 @@
 .Auth-title-wrapper {
     width: 100%;
     text-align: center;
-
+    margin: 0;
+    padding: 0;
 }
 
 .Auth-title {
@@ -178,20 +186,26 @@
 }
 
 
-.Profile-Settings-ChangePasswordButton {
-    margin-top: 20px;
+.Profile-Settings-redlink {
     text-align: center;
     color: #c42b2b;
     cursor: pointer;
+    margin-top: 10px;
 }
 
-    .Profile-Settings-ChangePasswordButton > * {
+    .Profile-Settings-redlink > * {
         cursor: pointer;
     }
 
-        .Profile-Settings-ChangePasswordButton > *:hover {
+        .Profile-Settings-redlink > *:hover {
             color: #ff4747;
         }
 
+.logout-label{
+    text-align: right; 
+}
 
+.register-wrapper {
+    width: 20rem;
+}
 

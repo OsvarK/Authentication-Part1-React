@@ -3,16 +3,20 @@ import React, { Component, createContext } from 'react';
 export const AuthenticationContext = createContext();
 
 export class AuthenticationProvider extends Component {
-    state = {
-        Loading: true,
-        isAuthenticated: false,
-        UserData: {
-            Username: 'NONE',
-            Firstname: 'NONE',
-            Lastname: 'NONE',
-            Email: 'NONE',
-            AccountStatus: 'NONE'
+    constructor(props) {
+        super(props);
+        this.state = {
+            Loading: true,
+            isAuthenticated: false,
+            UserData: {
+                Username: 'NONE',
+                Firstname: 'NONE',
+                Lastname: 'NONE',
+                Email: 'NONE',
+                AccountStatus: 'NONE'
+            }
         }
+
     }
 
     componentDidMount() {

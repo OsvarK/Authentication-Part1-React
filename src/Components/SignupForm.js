@@ -114,7 +114,7 @@ class SignupForm extends Component {
         }
 
         return (
-            <div>
+            <div className="register-wrapper">
                 {this.state.Loading === true ? (<Loading />) : (
                     <form onSubmit={this.handleSubmit}>
                         <div className="Auth-card-span Auth-title-wrapper">
