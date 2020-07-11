@@ -4,10 +4,6 @@ import UserProfileSettings from './../../Components/UserProfileSettings';
 import { AuthenticationContext } from './../../Contexts/AuthenticationContext';
 
 class UserDashboard extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="floating-card-wrapper"> 

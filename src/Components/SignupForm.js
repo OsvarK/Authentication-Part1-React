@@ -32,7 +32,7 @@ class SignupForm extends Component {
             [e.target.name]: e.target.value
         }, () => {           
                 // Validate password
-                var pas = new String(this.state.Password);
+                var pas = this.state.Password;
 
                 var pasHaveLowercase = (/[a-z]/.test(pas));
                 var pasHaveUppsercase = (/[A-Z]/.test(pas));

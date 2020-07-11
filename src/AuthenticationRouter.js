@@ -11,11 +11,6 @@ import { useContext } from 'react';
 import UserDashboard from './Pages/Private/UserDashboardPage';
 
 class AuthenticationRouter extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-
     render() {  
        
         /* -----------------------------------------------------------------------------------------------------------

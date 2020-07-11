@@ -53,7 +53,7 @@ class UserProfileSettingsPage extends Component {
                     // if in the change password section.
                     if (this.state.ChangePassword) {
                         // Validate password
-                        var pas = new String(this.state.NewPassword);
+                        var pas = this.state.NewPassword;
                         var pasHaveLowercase = (/[a-z]/.test(pas));
                         var pasHaveUppsercase = (/[A-Z]/.test(pas));
                         var pasHasNumber = (/\d/.test(pas));
@@ -221,7 +221,7 @@ class UserProfileSettingsPage extends Component {
                                         <div className="Auth-card-span">
                                             <label>New Password</label>
                                             <div style={{ display: "flex" }}>
-                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="New Password..." id="NewPassword" name="NewPassword" type={this.state.showPassword}></input>
+                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="New Password..." id="NewPassword" name="NewPassword"></input>
                                                 <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
                                             </div>
                                             <div className="password-security-hints">
@@ -252,7 +252,7 @@ class UserProfileSettingsPage extends Component {
                                     <div className="Auth-card-span">
                                             <label>Confirm your changes with your password</label>
                                             <div style={{ display: "flex" }}>
-                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.ValidatationPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="Password..." id="ValidatationPassword" name="ValidatationPassword" type={this.state.showPassword}></input>
+                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.ValidatationPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="Password..." id="ValidatationPassword" name="ValidatationPassword"></input>
                                                 <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
                                             </div>
                                     </div>
