@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 
-class SignupForm extends Component {
+class RegisterForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,7 +33,6 @@ class SignupForm extends Component {
         }, () => {           
                 // Validate password
                 var pas = this.state.Password;
-
                 var pasHaveLowercase = (/[a-z]/.test(pas));
                 var pasHaveUppsercase = (/[A-Z]/.test(pas));
                 var pasHasNumber = (/\d/.test(pas));
@@ -118,7 +117,7 @@ class SignupForm extends Component {
                 {this.state.Loading === true ? (<Loading />) : (
                     <form onSubmit={this.handleSubmit}>
                         <div className="Auth-card-span Auth-title-wrapper">
-                            <h1 className="Auth-title">Register</h1>
+                            <h1 className="Auth-title">Register Form</h1>
                         </div>
                         <Error />
 
@@ -169,4 +168,4 @@ class SignupForm extends Component {
     }
 }
 
-export default SignupForm;
+export default RegisterForm;

@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import Loading from './Loading';
 import { Link } from 'react-router-dom';
-
+import LoginAlternatives from './LoginAlternatives';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -11,7 +11,8 @@ class LoginForm extends Component {
             Password: null,
             Error: null,
             Loading: false,
-            showPassword: "Password"
+            showPassword: "Password",
+            disabledSubmit: true
         }
     }
     
@@ -19,6 +20,13 @@ class LoginForm extends Component {
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
+        }, () => {
+                // Validate that all fields are NOT empty
+                if ( this.state.Username !== "" && this.state.Password !== "") {
+                    this.setState({ disabledSubmit: false });
+                } else {
+                    this.setState({ disabledSubmit: true });
+                }
         });
     }
 
@@ -72,35 +80,39 @@ class LoginForm extends Component {
         }
 
         return (
-            <div>
+            <div>              
                 {this.state.Loading === true ? (<Loading />) : (
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="Auth-card-span Auth-title-wrapper">
-                            <h1 className="Auth-title">Login Form</h1>
-                        </div>
-                        <Error />
-                        <div className="Auth-card-span">
-                            <label>Username</label>
-                            <input value={this.state.Username} onChange={this.handleChange} id="Username" name="Username" placeholder="Username..."></input>
-                        </div>
-                        <div className="Auth-card-span">
-                            <label>Password</label>
-                            <div style={{ display: "flex" }}>
-                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
-                                <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
-                            </div>    
-                        </div>
-                        <div className="Auth-card-span Auth-submit-section">
-                            <div className="submit-btn-wrapper">
-                                <button type="submit">Login</button>
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="Auth-card-span Auth-title-wrapper">
+                                <h1 className="Auth-title">Login Form</h1>
                             </div>
-                            <div className="Auth-submit-link-wrapper">
-                                <label> Need an account? <Link to='/register' id="link">Signup!</Link></label>
+                            <Error />
+                            <div className="Auth-card-span">
+                                <label>Username</label>
+                                <input value={this.state.Username} onChange={this.handleChange} id="Username" name="Username" placeholder="Username..."></input>
                             </div>
-                        </div>
-                    </form>
+                            <div className="Auth-card-span">
+                                <label>Password</label>
+                                <div style={{ display: "flex" }}>
+                                    <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
+                                    <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                </div>    
+                            </div>
+                            <div className="Auth-card-span Auth-submit-section">
+                                <div className="submit-btn-wrapper">
+                                    <button disabled={this.state.disabledSubmit} type="submit">Login</button>
+                                </div>
+                                <div className="Auth-submit-link-wrapper">
+                                    <label> Need an account? <Link to='/register' id="link">Register!</Link></label>
+                                </div>   
+                            </div>                       
+                        </form>
+                        <LoginAlternatives /> 
+                    </div>
                 )}
             </div>
+           
         );
     }
 }

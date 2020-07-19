@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import SignupForm from '../../Components/SignupForm';
+import RegisterForm from '../../Components/RegisterForm';
 
-class SignupPage extends Component {
+class RegisterPage extends Component {
     render() {
         return (
             <div>
                 <div className="floating-card-wrapper">
                     <div className="floating-card">                          
-                        <SignupForm />
+                        <RegisterForm />
                     </div>
                 </div>
             </div>
@@ -15,4 +15,4 @@ class SignupPage extends Component {
     }
 }
 
-export default SignupPage;
+export default RegisterPage;

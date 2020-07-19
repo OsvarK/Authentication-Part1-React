@@ -196,16 +196,14 @@
     .Profile-Settings-redlink > * {
         cursor: pointer;
     }
-
         .Profile-Settings-redlink > *:hover {
             color: #ff4747;
         }
 
-.logout-label{
+.logout-label {
     text-align: right; 
 }
 
 .register-wrapper {
     width: 20rem;
 }
-

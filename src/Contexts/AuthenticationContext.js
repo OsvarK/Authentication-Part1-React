@@ -8,15 +8,16 @@ export class AuthenticationProvider extends Component {
         this.state = {
             Loading: true,
             isAuthenticated: false,
+            isUsingAlternativeLogin: false,
+            AlternativeLoginProvider: "NONE",
             UserData: {
                 Username: 'NONE',
                 Firstname: 'NONE',
                 Lastname: 'NONE',
                 Email: 'NONE',
-                AccountStatus: 'NONE'
+                IsAdmin: 'NONE'
             }
         }
-
     }
 
     componentDidMount() {
@@ -33,19 +34,16 @@ export class AuthenticationProvider extends Component {
                 response.json().then(data => {
                     this.setState({
                         UserData: {
-                            Username: data[1],
-                            Firstname: data[2],
-                            Lastname: data[3],
-                            Email: data[4],
-                            AccountStatus: data[6]
+                            Username: data.username,
+                            Firstname: data.firstname,
+                            Lastname: data.lastname,
+                            Email: data.email,
+                            IsAdmin: data.idAdmin
                         }
                     })
                 })
-
                 this.setState({ isAuthenticated: true })
                 // Populate the UserDataContext with the users data
-
-
             } else {
                 this.setState({ isAuthenticated: false })
             }

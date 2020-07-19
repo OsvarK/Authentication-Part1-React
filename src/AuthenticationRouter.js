@@ -5,7 +5,7 @@ import './CSS/Auth.css';
 // Imported components
 import Loading from './Components/Loading';
 import LoginPage from './Pages/Public/LoginPage';
-import SignupPage from './Pages/Public/SignupPage';
+import RegisterPage from './Pages/Public/RegisterPage';
 // Imported private components
 import { useContext } from 'react';
 import UserDashboard from './Pages/Private/UserDashboardPage';
@@ -68,7 +68,8 @@ class AuthenticationRouter extends Component {
                             <PrivateRoute path='/myprofile' component={() => <UserDashboard />} />
                             {/* Public Routes --------------------------------------------------------- */}
                             <PublicRoute path="/login" component={() => <LoginPage />} />
-                            <PublicRoute path="/register" component={() => <SignupPage />} />
+                            <PublicRoute path="/login" component={() => <LoginPage />} />
+                            <PublicRoute path="/register" component={() => <RegisterPage />} />
                             {/* Index Route ----------------------------------------------------------- */}
                             <PublicRoute path="/" component={() => <LoginPage />} />
                         </Switch>

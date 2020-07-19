@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AuthenticationContext } from './../Contexts/AuthenticationContext';
+import Loading from './Loading';
 
 class UserProfileSettingsPage extends Component {
     constructor(props) {
@@ -159,8 +160,7 @@ class UserProfileSettingsPage extends Component {
             this.setState({ Error: "Error with request" })
         }
         // Loading Off
-        this.setState({ Loading: false });
-        this.setState({ Validate: false });
+        this.setState({ ValidatationPassword: null, Validate: false, Loading: false });
     }
 
     render() {
@@ -177,96 +177,98 @@ class UserProfileSettingsPage extends Component {
         }
 
         return (
-            <div>                
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        {this.state.Validate === false ? (
-                            this.state.ChangePassword === false ? (
-                                <div className="profile-settings">
-                                    <div style={{ padding: "5px 0 0 0 " }} className="Auth-card-span Auth-title-wrapper">
-                                        <h1 style={{ color: "#707070" }} className="Auth-title">Edit User Profile</h1>
-                                    </div>
-                                    <Error />
-                                    <div className="Auth-card-span">
-                                        <label>Firstname</label>
-                                        <input placeholder={this.context.UserData.Firstname} value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname"></input>
-                                    </div>
-                                    <div className="Auth-card-span">
-                                        <label>Lastname</label>
-                                        <input placeholder={this.context.UserData.Lastname} value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname"></input>
-                                    </div>
-                                    <div className="Auth-card-span">
-                                        <label>Username</label>
-                                        <input placeholder={this.context.UserData.Username} value={this.state.NewUsername} onChange={this.handleChange} id="NewUsername" name="NewUsername"></input>
-                                    </div>
-                                    <div className="Auth-card-span">
-                                        <label>E-mail</label>
-                                        <input placeholder={this.context.UserData.Email} value={this.state.NewEmail} onChange={this.handleChange} type="Email" id="NewEmail" name="NewEmail"></input>
-                                    </div>
-                                    <div className="Auth-card-span Auth-submit-section">
-                                        <div className="submit-btn-wrapper">
-                                            <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ Validate: true, confirmBtnStatus: false })} >Confirm change</button>
-                                        </div>
-                                    </div>
-                                    <div onClick={this.clearAllInputStates} className="Profile-Settings-redlink">
-                                        <label>Change password</label>
-                                    </div>
-                                </div>
-                            ) : (                                    
+            <div>
+                {this.state.Loading === true ? (<Loading />): (
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            {this.state.Validate === false ? (
+                                this.state.ChangePassword === false ? (
                                     <div className="profile-settings">
                                         <div style={{ padding: "5px 0 0 0 " }} className="Auth-card-span Auth-title-wrapper">
-                                            <h1 style={{ color: "#707070" }} className="Auth-title">Change Password</h1>
+                                            <h1 style={{ color: "#707070" }} className="Auth-title">Edit User Profile</h1>
                                         </div>
                                         <Error />
                                         <div className="Auth-card-span">
-                                            <label>New Password</label>
-                                            <div style={{ display: "flex" }}>
-                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="New Password..." id="NewPassword" name="NewPassword"></input>
-                                                <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
-                                            </div>
-                                            <div className="password-security-hints">
-                                                <label>Password requirements.</label>
-                                                <label className={this.state.pasCheck.pasHaveLowercase}>One lowercase charachter</label>
-                                                <label className={this.state.pasCheck.pasHaveUppsercase}>One uppsercase charachter</label>
-                                                <label className={this.state.pasCheck.pasHasNumber}>One number</label>
-                                                <label className={this.state.pasCheck.pasHasSymbol}>One special charachter</label>
-                                                <label className={this.state.pasCheck.pasHasLenght}>8 characters minimum</label>
-                                            </div>
+                                            <label>Firstname</label>
+                                            <input placeholder={this.context.UserData.Firstname} value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname"></input>
+                                        </div>
+                                        <div className="Auth-card-span">
+                                            <label>Lastname</label>
+                                            <input placeholder={this.context.UserData.Lastname} value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname"></input>
+                                        </div>
+                                        <div className="Auth-card-span">
+                                            <label>Username</label>
+                                            <input placeholder={this.context.UserData.Username} value={this.state.NewUsername} onChange={this.handleChange} id="NewUsername" name="NewUsername"></input>
+                                        </div>
+                                        <div className="Auth-card-span">
+                                            <label>E-mail</label>
+                                            <input placeholder={this.context.UserData.Email} value={this.state.NewEmail} onChange={this.handleChange} type="Email" id="NewEmail" name="NewEmail"></input>
                                         </div>
                                         <div className="Auth-card-span Auth-submit-section">
                                             <div className="submit-btn-wrapper">
-                                                <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ Validate: true, confirmBtnStatus: false })} >Confirm change</button>
+                                                <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ ValidatationPassword: null, Validate: true, confirmBtnStatus: false })} >Confirm change</button>
                                             </div>
                                         </div>
                                         <div onClick={this.clearAllInputStates} className="Profile-Settings-redlink">
-                                            <label>Back</label>
+                                            <label>Change password</label>
                                         </div>
                                     </div>
-                                )      
-                        ): (
-                                <div className= "profile-settings">
-                                <div className = "Auth-card-span Auth-submit-section">
-                                    <div className = "Auth-card-span Auth-title-wrapper">
-                                        <h1 style={{ color: "#c42b2b" }} className = "Auth-title">Validation</h1>
-                                    </div>
-                                    <div className="Auth-card-span">
-                                            <label>Confirm your changes with your password</label>
-                                            <div style={{ display: "flex" }}>
-                                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.ValidatationPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="Password..." id="ValidatationPassword" name="ValidatationPassword"></input>
-                                                <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                ) : (
+                                        <div className="profile-settings">
+                                            <div style={{ padding: "5px 0 0 0 " }} className="Auth-card-span Auth-title-wrapper">
+                                                <h1 style={{ color: "#707070" }} className="Auth-title">Change Password</h1>
                                             </div>
+                                            <Error />
+                                            <div className="Auth-card-span">
+                                                <label>New Password</label>
+                                                <div style={{ display: "flex" }}>
+                                                    <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="New Password..." id="NewPassword" name="NewPassword"></input>
+                                                    <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                                </div>
+                                                <div className="password-security-hints">
+                                                    <label>Password requirements.</label>
+                                                    <label className={this.state.pasCheck.pasHaveLowercase}>One lowercase charachter</label>
+                                                    <label className={this.state.pasCheck.pasHaveUppsercase}>One uppsercase charachter</label>
+                                                    <label className={this.state.pasCheck.pasHasNumber}>One number</label>
+                                                    <label className={this.state.pasCheck.pasHasSymbol}>One special charachter</label>
+                                                    <label className={this.state.pasCheck.pasHasLenght}>8 characters minimum</label>
+                                                </div>
+                                            </div>
+                                            <div className="Auth-card-span Auth-submit-section">
+                                                <div className="submit-btn-wrapper">
+                                                    <button disabled={!this.state.confirmBtnStatus} onClick={() => this.setState({ ValidatationPassword: null, Validate: true, confirmBtnStatus: false })} >Confirm change</button>
+                                                </div>
+                                            </div>
+                                            <div onClick={this.clearAllInputStates} className="Profile-Settings-redlink">
+                                                <label>Back</label>
+                                            </div>
+                                        </div>
+                                    )
+                            ) : (
+                                    <div className="profile-settings">
+                                        <div className="Auth-card-span Auth-submit-section">
+                                            <div className="Auth-card-span Auth-title-wrapper">
+                                                <h1 style={{ color: "#c42b2b" }} className="Auth-title">Validation</h1>
+                                            </div>
+                                            <div className="Auth-card-span">
+                                                <label>Confirm your changes with your password</label>
+                                                <div style={{ display: "flex" }}>
+                                                    <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.ValidatationPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="Password..." id="ValidatationPassword" name="ValidatationPassword"></input>
+                                                    <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div className="submit-btn-wrapper">
+                                                <button disabled={!this.state.confirmBtnStatus} type="submit">Confirm change</button>
+                                            </div>
+                                            <div onClick={() => this.setState({ ValidatationPassword: null, Validate: false, confirmBtnStatus: true })} className="Profile-Settings-redlink">
+                                                <label>Back</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="submit-btn-wrapper">
-                                            <button disabled={!this.state.confirmBtnStatus} type="submit">Confirm change</button>
-                                    </div>
-                                    <div onClick={() => this.setState({ ValidatationPassword: null, Validate: false, confirmBtnStatus: true})} className="Profile-Settings-redlink">
-                                        <label>Back</label>
-                                    </div>
-                                </div>
-                            </div>
-                            )}                            
-                    </form>
-                </div>
+                                )}
+                        </form>
+                    </div>
+                )}               
             </div>
         );
     }
