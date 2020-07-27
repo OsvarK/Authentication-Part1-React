@@ -20,16 +20,11 @@ function LoginAlternatives(props) {
             } else {
                 // Failed Post Request
                 const getData = await Response.json();
-                this.setState({ Error: getData })
+                this.props.error(getData);
             }
         } catch (e) {
-            // error handler
-            console.error(e);
+            
         }
-    }
-
-    const responseGoogleFail = async () => {
-        props.error("Authentication from google failed.");
     }
 
     const GoogleSvg = () => {
@@ -44,6 +39,7 @@ function LoginAlternatives(props) {
             );
     }
 
+
     return (
         <div className="alternative-login-wrapper">
             <GoogleLogin
@@ -56,11 +52,12 @@ function LoginAlternatives(props) {
                     </div>
                 )}
                 clientId="187244628449-lv1fanismah4p98iarsaut3hfvsu1us9.apps.googleusercontent.com"
-                onSuccess={() => responseGoogle}
-                onFailure={() => responseGoogleFail}
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
             />
         </div>
+
     );
 }
 
