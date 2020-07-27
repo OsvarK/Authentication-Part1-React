@@ -117,48 +117,50 @@ class RegisterForm extends Component {
                 {this.state.Loading === true ? (<Loading />) : (
                     <form onSubmit={this.handleSubmit}>
                         <div className="Auth-card-span Auth-title-wrapper">
-                            <h1 className="Auth-title">Register Form</h1>
+                            <h1 style={{ textAlign: "center" }} className="section-h1">Register Form</h1>
                         </div>
                         <Error />
 
                         <div className="Auth-card-span">
                             <label>Full name</label>
                             <div style={{ display: "flex" }}>
-                                <input style={{ float: "left", marginRight: "5px"}} value={this.state.Firstname} onChange={this.handleChange} placeholder="Firstname..." id="Firstname" name="Firstname"></input>
-                                <input style={{ float: "right", marginleft: "5px" }} value={this.state.Lastname} onChange={this.handleChange} placeholder="Lastname..." id="Lastname" name="Lastname"></input>
+                                <input className="auth-input" style={{ float: "left", marginRight: "5px"}} value={this.state.Firstname} onChange={this.handleChange} placeholder="Firstname..." id="Firstname" name="Firstname"></input>
+                                <input className="auth-input" style={{ float: "right", marginleft: "5px" }} value={this.state.Lastname} onChange={this.handleChange} placeholder="Lastname..." id="Lastname" name="Lastname"></input>
                             </div>                             
                         </div>
 
                         <div className="Auth-card-span">
                             <label>Username</label>
-                            <input value={this.state.Username} onChange={this.handleChange} placeholder="Username..." id="Username" name="Username"></input>
+                            <input className="auth-input" value={this.state.Username} onChange={this.handleChange} placeholder="Username..." id="Username" name="Username"></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>E-mail</label>
-                            <input value={this.state.Email} onChange={this.handleChange} placeholder="E-Mail..." type="Email" id="Email" name="Email"></input>
+                            <input className="auth-input" value={this.state.Email} onChange={this.handleChange} placeholder="E-Mail..." type="Email" id="Email" name="Email"></input>
                         </div>
                         <div className="Auth-card-span">
                             <label>Password</label>
                             
                             <div style={{display: "flex"}}>
-                                <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
+                                <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
                                 <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({showPassword: "Text"})} className="fa fa-eye" aria-hidden="true"></i>
                             </div>
-                            <div className="password-security-hints">
-                                <label>Password requirements.</label>
-                                <label className={this.state.pasCheck.pasHaveLowercase}>One lowercase charachter</label>
-                                <label className={this.state.pasCheck.pasHaveUppsercase}>One uppsercase charachter</label>
-                                <label className={this.state.pasCheck.pasHasNumber}>One number</label>
-                                <label className={this.state.pasCheck.pasHasSymbol}>One special charachter</label>
-                                <label className={this.state.pasCheck.pasHasLenght}>8 characters minimum</label>    
+                            <div style={{ padding: "1rem 0" }} className="Auth-card-span">
+                                <label>In order to protect your account, make sure your password:</label>
+                                <ul className="password-checker-wrapper">
+                                    <li className={this.state.pasCheck.pasHaveLowercase}>Contains at least one lowercase.</li>
+                                    <li className={this.state.pasCheck.pasHaveUppsercase}> Contains at least one uppsercase.</li>
+                                    <li className={this.state.pasCheck.pasHasSymbol}>Contains at least one symbol.</li>
+                                    <li className={this.state.pasCheck.pasHasNumber}>Contains at least one digit.</li>
+                                    <li className={this.state.pasCheck.pasHasLenght}>Is at least 8 characters long.</li>
+                                </ul>
                             </div>
                         </div>
                         <div className="Auth-card-span Auth-submit-section">
                             <div className="submit-btn-wrapper">
                                 <button disabled={this.state.disabledSubmit} type="submit">Signup</button>
                             </div>
-                            <div className="Auth-submit-link-wrapper">
-                                <label> Already have an account? <Link to= '/login' id="link">Login!</Link></label>
+                            <div className="link black_link">
+                                <Link to='/login' className="link">Login</Link>
                             </div>
                         </div>
                     </form>

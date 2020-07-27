@@ -1,53 +1,145 @@
 
+.auth-input {
+    border-radius: 4px;
+    margin-top: 4px;
+    font-size: 18px;
+    width: 100%;
+    padding: 6px 4px;
+    box-sizing: border-box;
+    border: solid #D3D0D0 0.5px;
+    z-index: 1;
+}
+
+.floating-card {
+    border-radius: 4px;
+    background-color: white;
+    padding: 2rem;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.floating-card-wrapper {
+    width: 20rem;
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Loading-wrapper {
+    text-align: center;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+    .lds-ellipsis div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #626262;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+        .lds-ellipsis div:nth-child(1) {
+            left: 8px;
+            animation: lds-ellipsis1 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(2) {
+            left: 8px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(3) {
+            left: 32px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(4) {
+            left: 56px;
+            animation: lds-ellipsis3 0.6s infinite;
+        }
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
 
 .submit-btn-wrapper > button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-top: 1rem;
     width: 100%;
-    -moz-box-shadow: 0px 3px 0px 0px #1f833d;
-    -webkit-box-shadow: 0px 3px 0px 0px #1f833d;
-    box-shadow: 0px 3px 0px 0px #1f833d;
-    background-color: #3aac5c;
-    border-radius: 5px;
+    height: 2.5rem;
+    background-color: #383838;
+    border-radius: 4px;
     cursor: pointer;
     color: #ffffff;
-    font-size: 17px;
-    padding: 10px;
+    font-size: 1rem;
+    padding: 0.7rem;
     text-decoration: none;
     border: none;
     outline: none;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin-right: 0.7rem;
+    margin-bottom: 0.7rem;
+    transition: ease 0.1s;
 }
 
     .submit-btn-wrapper > button:disabled {
         background-color: #808080;
         cursor: default;
         pointer-events: none;
-        -moz-box-shadow: 0px 3px 0px 0px #6b6b6b;
-        -webkit-box-shadow: 0px 3px 0px 0px #6b6b6b;
-        box-shadow: 0px 3px 0px 0px #6b6b6b;
     }
 
 
     .submit-btn-wrapper > button:hover {
-        transform: translateY(2px);
-        background-color: #3aac5c;
-        -moz-box-shadow: 0px 3px 0px 0px #3aac5c;
-        -webkit-box-shadow: 0px 3px 0px 0px #3aac5c;
-        box-shadow: 0px 3px 0px 0px #3aac5c;
+        background-color: black;
+        transition: ease 0.1s;
     }
 
     .submit-btn-wrapper > button:active {
+        transform: translateY(4px);
         position: relative;
         top: 1px;
     }
 
-.profile-settings {
-    margin-top: 30px;
-    padding-bottom: 10px;
-    width: 20rem;
+
+.profile-settings-wrapper {    
     align-self: center;
-    border-top: solid #D3D0D0 0.5px;
-    border-bottom: solid #D3D0D0 0.5px;
 }
 
     .profile-settings h1 {
@@ -56,23 +148,36 @@
         padding-top: 12px;
     }
 
-.user-profile {
+.account-information-card {
     align-self: center;
-    border-radius: 5px;
-    padding: 20px;
     background-color: white;
     margin: auto;
 }
 
-    .User-profile-content label {
-        display: block;
-        font-size: 12px;
-        color: #707070;
+.section-h1 {
+    font-size: 25px;
+}
+
+.account-informatio-content label {
+    display: block;
+    font-size: 12px;
+    color: #707070;    
+}
+
+.user-info {
+    display: flex;
+    padding: 0.2rem 0;
+}
+
+    .user-info label:nth-child(1) {
+        margin-right: 2rem;
+        width: 6rem;
+    }
+    .user-info label:nth-child(2) {
+        color: black;
+        font-weight: 500;
     }
 
-        .User-profile-content label:nth-child(1) {
-            font-size: 20px;
-        }
 
 
 .Auth-error-Wrapper {
@@ -87,12 +192,6 @@
 
 .Auth-submit-btn-wrapper{
     width: 100%;
-}
-
-.Auth-submit-link-wrapper {
-    padding-top: 20px;
-    width: 100%;
-    font-size: 14px;
 }
 
 .Auth-card-span {
@@ -119,24 +218,6 @@
         color: #3057d7;
     }
 
-.Auth-submit-section {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.Auth-title-wrapper {
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-.Auth-title {
-    color: black;
-    font-size: 20px !important;
-    font-weight: 400;
-
-}
 .Auth-card-span > div > i {
     float: right;
     margin-top: 4px;
@@ -154,51 +235,56 @@
     color: black;
 }
 
-
-
-.password-security-hints {
-    margin: 14px 0 50px 0;
+.password-checker-wrapper{
+    margin-left: -0.8rem;
+    font-size: 0.9rem;
 }
-
-    .password-security-hints > label {
-        margin: 0 2px;
-        width: 100%;
-        font-size: 14px;
-        display: inline-block;
-        
-    }
-
-        .password-security-hints > label:nth-child(1) {
-            margin: 6px 2px;
-            width: 100%;
-            font-size: 18px;
-            display: inline-block;
-            color: #707070;
-        }
 
 
 .green {
-    color: #06c266
+    color: #3bba61;
 }
 
 .red {
-    color: #ff7979
+    color: #DF5757;
 }
 
-
-.Profile-Settings-redlink {
+.link {
+    width: 100%;
+    padding-top: 1rem;
     text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+}
+    .link a {
+        width: 100%;
+    } 
+
+
+    .red_link:hover > *{
+        color: #ff4747;
+    }
+
+.red_link > * {
     color: #c42b2b;
     cursor: pointer;
-    margin-top: 10px;
 }
-
-    .Profile-Settings-redlink > * {
-        cursor: pointer;
-    }
-        .Profile-Settings-redlink > *:hover {
+        .red_link > *:hover {
             color: #ff4747;
         }
+
+.black_link:hover > * {
+    color: black;
+}
+
+.black_link > * {
+    color: #707070;
+    cursor: pointer;
+}
+
+    .black_link > *:hover {
+        color: black;
+    }
 
 .logout-label {
     text-align: right; 
@@ -207,3 +293,82 @@
 .register-wrapper {
     width: 20rem;
 }
+
+.login-alternative-seperator {
+    display: flex;
+    opacity: 0.5;
+}
+
+    .login-alternative-seperator hr {
+        width: 50%;
+        height: 0;
+        opacity: 0.5;
+        border-top: 1px solid black;
+        color: black;
+        background-color: black;
+    }
+
+    .login-alternative-seperator label {
+        width: 20%;
+        text-align: center;
+    }
+
+
+.alternative-login-wrapper{
+    margin-top: 1rem;
+}
+
+.alternative-login-button-wrapper button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ECECEC;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.7rem;
+    border: none;
+    outline: none;
+    margin-right: 0.7rem;
+    margin-bottom: 0.7rem;
+    transition: ease 0.1s;
+}
+
+.alternative-login-button-wrapper:hover button {
+    background-color: #e2e2e2;
+    transition: ease 0.1s;
+}
+
+.alternative-login-button-wrapper * {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.alternative-login-button-wrapper svg {
+    width: 2rem;
+    height: auto;
+}
+
+.alternative-login-button-wrapper label {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding-left: 2rem;
+}
+
+.disabled-change-password {
+    background-color: #ECECEC;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .disabled-change-password label {
+
+    }

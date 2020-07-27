@@ -7,8 +7,8 @@ class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Username: null,
-            Password: null,
+            Username: "",
+            Password: "",
             Error: null,
             Loading: false,
             showPassword: "Password",
@@ -35,7 +35,7 @@ class LoginForm extends Component {
         this.setState({Loading: true});
         // Loading on
         const sendData = {
-            Username: this.state.Username,
+            EmailOrUsername: this.state.Username,
             Password: this.state.Password
         }
         const settings = {
@@ -65,6 +65,10 @@ class LoginForm extends Component {
         this.setState({Loading: false});    
     }
 
+    setError = (value) => {
+        this.setState({ Error: value});
+    }
+
     render() {
         //Display error msg
         const Error = () => {
@@ -85,17 +89,17 @@ class LoginForm extends Component {
                     <div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="Auth-card-span Auth-title-wrapper">
-                                <h1 className="Auth-title">Login Form</h1>
+                                <h1 style={{ textAlign: "center" }} className="section-h1">Login Form</h1>
                             </div>
                             <Error />
                             <div className="Auth-card-span">
                                 <label>Username</label>
-                                <input value={this.state.Username} onChange={this.handleChange} id="Username" name="Username" placeholder="Username..."></input>
+                                <input className="auth-input" value={this.state.Username} onChange={this.handleChange} id="Username" name="Username" placeholder="Username..."></input>
                             </div>
                             <div className="Auth-card-span">
                                 <label>Password</label>
                                 <div style={{ display: "flex" }}>
-                                    <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
+                                    <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
                                     <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
                                 </div>    
                             </div>
@@ -103,12 +107,17 @@ class LoginForm extends Component {
                                 <div className="submit-btn-wrapper">
                                     <button disabled={this.state.disabledSubmit} type="submit">Login</button>
                                 </div>
-                                <div className="Auth-submit-link-wrapper">
-                                    <label> Need an account? <Link to='/register' id="link">Register!</Link></label>
-                                </div>   
                             </div>                       
                         </form>
-                        <LoginAlternatives /> 
+                        <div className="login-alternative-seperator">
+                            <hr></hr>
+                            <label>or</label>
+                            <hr></hr>
+                        </div>
+                        <LoginAlternatives error={this.setError.bind(this)} />
+                        <div className="link black_link">
+                            <Link to='/register'>Register using Email</Link>
+                        </div>   
                     </div>
                 )}
             </div>

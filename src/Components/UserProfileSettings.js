@@ -190,19 +190,19 @@ class UserProfileSettingsPage extends Component {
                                         <Error />
                                         <div className="Auth-card-span">
                                             <label>Firstname</label>
-                                            <input placeholder={this.context.UserData.Firstname} value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname"></input>
+                                            <input className="auth-input" placeholder={this.context.UserData.Firstname} value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname"></input>
                                         </div>
                                         <div className="Auth-card-span">
                                             <label>Lastname</label>
-                                            <input placeholder={this.context.UserData.Lastname} value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname"></input>
+                                            <input className="auth-input" placeholder={this.context.UserData.Lastname} value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname"></input>
                                         </div>
                                         <div className="Auth-card-span">
                                             <label>Username</label>
-                                            <input placeholder={this.context.UserData.Username} value={this.state.NewUsername} onChange={this.handleChange} id="NewUsername" name="NewUsername"></input>
+                                            <input className="auth-input" placeholder={this.context.UserData.Username} value={this.state.NewUsername} onChange={this.handleChange} id="NewUsername" name="NewUsername"></input>
                                         </div>
                                         <div className="Auth-card-span">
                                             <label>E-mail</label>
-                                            <input placeholder={this.context.UserData.Email} value={this.state.NewEmail} onChange={this.handleChange} type="Email" id="NewEmail" name="NewEmail"></input>
+                                            <input className="auth-input" placeholder={this.context.UserData.Email} value={this.state.NewEmail} onChange={this.handleChange} type="Email" id="NewEmail" name="NewEmail"></input>
                                         </div>
                                         <div className="Auth-card-span Auth-submit-section">
                                             <div className="submit-btn-wrapper">
@@ -222,7 +222,7 @@ class UserProfileSettingsPage extends Component {
                                             <div className="Auth-card-span">
                                                 <label>New Password</label>
                                                 <div style={{ display: "flex" }}>
-                                                    <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="New Password..." id="NewPassword" name="NewPassword"></input>
+                                                    <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="New Password..." id="NewPassword" name="NewPassword"></input>
                                                     <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
                                                 </div>
                                                 <div className="password-security-hints">
@@ -253,7 +253,7 @@ class UserProfileSettingsPage extends Component {
                                             <div className="Auth-card-span">
                                                 <label>Confirm your changes with your password</label>
                                                 <div style={{ display: "flex" }}>
-                                                    <input style={{ borderRadius: "4px 0 0 4px" }} value={this.state.ValidatationPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="Password..." id="ValidatationPassword" name="ValidatationPassword"></input>
+                                                    <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.ValidatationPassword} type={this.state.showPassword} onChange={this.handleChange} placeholder="Password..." id="ValidatationPassword" name="ValidatationPassword"></input>
                                                     <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
                                                 </div>
                                             </div>

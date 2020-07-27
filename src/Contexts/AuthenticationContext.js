@@ -15,7 +15,7 @@ export class AuthenticationProvider extends Component {
                 Firstname: 'NONE',
                 Lastname: 'NONE',
                 Email: 'NONE',
-                IsAdmin: 'NONE'
+                IsAdmin: 'NONE',
             }
         }
     }
@@ -30,15 +30,18 @@ export class AuthenticationProvider extends Component {
         try {
             const response = await fetch(`/api/auth/auth`); // <---- Fetch url for Authentication.
             // If Response is OK, the user is Authenticated
-            if (response.ok) {           
+            if (response.ok) {                    
                 response.json().then(data => {
+                    console.log(data);
                     this.setState({
+                        isUsingAlternativeLogin: data.linkedAccountStatus,
+                        AlternativeLoginProvider: data.linkedAccountProvider,
                         UserData: {
                             Username: data.username,
                             Firstname: data.firstname,
                             Lastname: data.lastname,
                             Email: data.email,
-                            IsAdmin: data.idAdmin
+                            IsAdmin: data.isAdmin
                         }
                     })
                 })
