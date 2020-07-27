@@ -61,7 +61,20 @@ export class AuthenticationProvider extends Component {
     Logout = async (e) => {
         this.setState({ Loading: true });
         try {
-            await fetch(`/api/auth/logout`); // <---- Fetch url for logout.
+            await fetch(`/api/auth/logout`);
+            // Redirect to home page.
+            window.location.href = '/'
+        }
+        catch (e) {
+            console.log(e);
+        }
+        this.setState({ Loading: false });
+    }
+
+    DeleteAccount = async (e) => {
+        this.setState({ Loading: true });
+        try {
+            await fetch(`/api/auth/deleteaccount`);
             // Redirect to home page.
             window.location.href = '/'
         }
@@ -73,7 +86,7 @@ export class AuthenticationProvider extends Component {
 
     render() {
         return (
-            <AuthenticationContext.Provider value={{ ...this.state, Logout: this.Logout }}>
+            <AuthenticationContext.Provider value={{ ...this.state, Logout: this.Logout, DeleteAccount: this.DeleteAccount }}>
                 {this.props.children}
             </AuthenticationContext.Provider>
         );

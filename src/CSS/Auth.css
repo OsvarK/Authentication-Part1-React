@@ -208,16 +208,6 @@
     color: dimgrey;
 }
 
-.Auth-link {
-    cursor: pointer;
-    color: #7192FF;
-    text-decoration-line: none;
-}
-    .Auth-link:hover {
-        text-decoration-line: underline;
-        color: #3057d7;
-    }
-
 .Auth-card-span > div > i {
     float: right;
     margin-top: 4px;
@@ -251,7 +241,7 @@
 
 .link {
     width: 100%;
-    padding-top: 1rem;
+    padding: 0.5rem 0;
     text-align: center;
     cursor: pointer;
     font-size: 1rem;
