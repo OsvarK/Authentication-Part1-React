@@ -191,8 +191,8 @@ class ChangeUserPassword extends Component {
                                     </div>
                                 </div>
                             </div>)}
-                        <div className="Auth-card-span link">
-                            <Link className="black_link" to="/myprofile"><label onClick={this.clearAllInputStates} >Back</label></Link>
+                        <div onClick={this.clearAllInputStates} className="Auth-card-span link">
+                            <Link className="black_link" to="/myprofile"><label>Back</label></Link>
                         </div>
                     </div>
                 )}

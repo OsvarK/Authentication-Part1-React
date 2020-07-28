@@ -115,9 +115,11 @@ class LoginForm extends Component {
                             <hr></hr>
                         </div>
                         <LoginAlternatives error={this.setError.bind(this)} />
-                        <div className="link black_link">
-                            <Link to='/register'>Register using Email</Link>
-                        </div>   
+                        <div className="link-wrapper">
+                            <Link to='/register' className="link black_link">
+                                <label>Register using Email</label>
+                            </Link>  
+                        </div> 
                     </div>
                 )}
             </div>

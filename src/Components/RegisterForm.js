@@ -124,11 +124,10 @@ class RegisterForm extends Component {
                         <div className="Auth-card-span">
                             <label>Full name</label>
                             <div style={{ display: "flex" }}>
-                                <input className="auth-input" style={{ float: "left", marginRight: "5px"}} value={this.state.Firstname} onChange={this.handleChange} placeholder="Firstname..." id="Firstname" name="Firstname"></input>
-                                <input className="auth-input" style={{ float: "right", marginleft: "5px" }} value={this.state.Lastname} onChange={this.handleChange} placeholder="Lastname..." id="Lastname" name="Lastname"></input>
+                                <input className="auth-input" style={{ width: "48%" }} value={this.state.Firstname} onChange={this.handleChange} placeholder="Firstname..." id="Firstname" name="Firstname"></input>
+                                <input className="auth-input" style={{ width: "48%", marginLeft: "auto", order: "2" }} value={this.state.Lastname} onChange={this.handleChange} placeholder="Lastname..." id="Lastname" name="Lastname"></input>
                             </div>                             
                         </div>
-
                         <div className="Auth-card-span">
                             <label>Username</label>
                             <input className="auth-input" value={this.state.Username} onChange={this.handleChange} placeholder="Username..." id="Username" name="Username"></input>
@@ -159,8 +158,10 @@ class RegisterForm extends Component {
                             <div className="submit-btn-wrapper">
                                 <button disabled={this.state.disabledSubmit} type="submit">Signup</button>
                             </div>
-                            <div className="link black_link">
-                                <Link to='/login' className="link">Login</Link>
+                            <div className="link-wrapper">
+                                <Link to='/login' className="link black_link">
+                                    <label>Login</label>
+                                </Link>   
                             </div>
                         </div>
                     </form>

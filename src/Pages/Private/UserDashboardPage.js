@@ -30,11 +30,11 @@ class UserDashboard extends Component {
                         </Router>
                     </div>
                     <div style={{ display: "flex", margin: "2rem 0"}} className="floating-card">
-                        <div style={{ textAlign: "center", width: "100%" }} className="link red_link">
-                            <label onClick={this.context.DeleteAccount}>Delete Account</label>
+                        <div onClick={this.context.DeleteAccount} style={{ textAlign: "center", width: "100%" }} className="link red_link">
+                            <label>Delete Account</label>
                         </div>
-                        <div style={{ textAlign: "center", width: "100%"}} className="link red_link">
-                            <label onClick={this.context.Logout}>Logout</label>
+                        <div onClick={this.context.Logout} style={{ textAlign: "center", width: "100%"}} className="link red_link">
+                            <label>Logout</label>
                         </div>
                     </div>
                 </div>

@@ -97,8 +97,8 @@ class EditUser extends Component {
                             <div className="Auth-card-span">
                                 <label>Full name</label>
                                 <div style={{ display: "flex" }}>
-                                    <input className="auth-input" placeholder={this.context.UserData.Firstname} style={{ float: "left", marginRight: "1rem" }} value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname"></input>
-                                    <input className="auth-input" placeholder={this.context.UserData.Lastname} style={{ float: "right", marginleft: "1rem" }} value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname"></input>
+                                    <input className="auth-input" placeholder={this.context.UserData.Firstname} style={{ width: "48%" }} value={this.state.NewFirstname} onChange={this.handleChange} id="NewFirstname" name="NewFirstname"></input>
+                                    <input className="auth-input" placeholder={this.context.UserData.Lastname} style={{ width: "48%", marginLeft: "auto", order: "2" }} value={this.state.NewLastname} onChange={this.handleChange} id="NewLastname" name="NewLastname"></input>
                                 </div>
                             </div>
                             <div className="Auth-card-span">
@@ -114,8 +114,8 @@ class EditUser extends Component {
                                     <button disabled={!this.state.confirmBtnStatus} onClick={this.handleSubmit} >Confirm Changes</button>
                                 </div>
                             </div>
-                            <div className="Auth-card-span link">
-                                <Link className="red_link" to="/myprofile/changepassword"><label onClick={this.clearAllInputStates} >Change Password</label></Link>
+                            <div onClick={this.clearAllInputStates}  className="Auth-card-span link">
+                                <Link className="red_link" to="/myprofile/changepassword"><label>Change Password</label></Link>
                             </div>
                         </div>
                     </form>
