@@ -94,12 +94,12 @@ class LoginForm extends Component {
                             <Error />
                             <div className="Auth-card-span">
                                 <label>Username</label>
-                                <input className="auth-input" value={this.state.Username} onChange={this.handleChange} id="Username" name="Username" placeholder="Username..."></input>
+                                <input className="auth-input" value={this.state.Username} onChange={this.handleChange} id="Username" name="Username"></input>
                             </div>
                             <div className="Auth-card-span">
                                 <label>Password</label>
                                 <div style={{ display: "flex" }}>
-                                    <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
+                                    <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} id="Password" name="Password" type={this.state.showPassword}></input>
                                     <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
                                 </div>    
                             </div>

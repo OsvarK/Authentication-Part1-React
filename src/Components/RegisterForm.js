@@ -136,22 +136,22 @@ class RegisterForm extends Component {
                             <label>E-mail</label>
                             <input className="auth-input" value={this.state.Email} onChange={this.handleChange} placeholder="E-Mail..." type="Email" id="Email" name="Email"></input>
                         </div>
-                        <div className="Auth-card-span">
+                        <div style={{ padding: "1rem 0" }} className="Auth-card-span">
+                            <label>In order to protect your account, make sure your password:</label>
+                            <ul className="password-checker-wrapper">
+                                <li className={this.state.pasCheck.pasHaveLowercase}>Contains at least one lowercase.</li>
+                                <li className={this.state.pasCheck.pasHaveUppsercase}> Contains at least one uppsercase.</li>
+                                <li className={this.state.pasCheck.pasHasSymbol}>Contains at least one symbol.</li>
+                                <li className={this.state.pasCheck.pasHasNumber}>Contains at least one digit.</li>
+                                <li className={this.state.pasCheck.pasHasLenght}>Is at least 8 characters long.</li>
+                            </ul>
+                        </div>
+                        <div style={{marginBottom: "1rem"}} className="Auth-card-span">
                             <label>Password</label>
-                            
+                           
                             <div style={{display: "flex"}}>
                                 <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.Password} onChange={this.handleChange} placeholder="Password..." id="Password" name="Password" type={this.state.showPassword}></input>
                                 <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({showPassword: "Text"})} className="fa fa-eye" aria-hidden="true"></i>
-                            </div>
-                            <div style={{ padding: "1rem 0" }} className="Auth-card-span">
-                                <label>In order to protect your account, make sure your password:</label>
-                                <ul className="password-checker-wrapper">
-                                    <li className={this.state.pasCheck.pasHaveLowercase}>Contains at least one lowercase.</li>
-                                    <li className={this.state.pasCheck.pasHaveUppsercase}> Contains at least one uppsercase.</li>
-                                    <li className={this.state.pasCheck.pasHasSymbol}>Contains at least one symbol.</li>
-                                    <li className={this.state.pasCheck.pasHasNumber}>Contains at least one digit.</li>
-                                    <li className={this.state.pasCheck.pasHasLenght}>Is at least 8 characters long.</li>
-                                </ul>
                             </div>
                         </div>
                         <div className="Auth-card-span Auth-submit-section">
