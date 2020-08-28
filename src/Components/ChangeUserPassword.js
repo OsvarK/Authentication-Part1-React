@@ -91,44 +91,40 @@ class ChangeUserPassword extends Component {
         }
     }
 
-    //handleSubmit = async (e) => {
-    //    // Loading on
-    //    e.preventDefault();
-    //    this.setState({ Loading: true });
-    //    const sendData = {
-    //        Username: this.state.NewUsername,
-    //        Firstname: this.state.NewFirstname,
-    //        Lastname: this.state.NewLastname,
-    //        Email: this.state.NewEmail,
-    //        Password: this.state.NewPassword,
-    //        ValidatedPassword: this.state.ValidatationPassword
-    //    }
-    //    const settings = {
-    //        method: 'POST',
-    //        headers: {
-    //            Accept: 'application/json',
-    //            'Content-Type': 'application/json',
-    //        },
-    //        body: JSON.stringify(sendData)
-    //    };
-    //    try {
-    //        const Response = await fetch(`/api/auth/edituser`, settings);
-    //        if (Response.ok) {
-    //            // Successful Post Request. update site
-    //            window.location.href = "/auth";
-    //        } else {
-    //            // Failed Post Request
-    //            const getData = await Response.json();
-    //            this.setState({ Error: getData })
-    //        }
-    //    } catch (e) {
-    //        // error handler
-    //        console.error(e);
-    //        this.setState({ Error: "Error with request" })
-    //    }
-    //    // Loading Off
-    //    this.setState({ ValidatationPassword: null, Validate: false, Loading: false });
-    //}
+    handleSubmit = async (e) => {
+        // Loading on
+        e.preventDefault();
+        this.setState({ Loading: true });
+        const sendData = {
+            currentPassword: this.state.CurrentPassword,
+            newPassword: this.state.NewPassword,
+        }
+        const settings = {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(sendData)
+        };
+        try {
+            const Response = await fetch(`/api/auth/changepassword`, settings);
+            if (Response.ok) {
+                // Successful Post Request. update site
+                window.location.href = "/auth";
+            } else {
+                // Failed Post Request
+                const getData = await Response.json();
+                this.setState({ Error: getData })
+            }
+        } catch (e) {
+            // error handler
+            console.error(e);
+            this.setState({ Error: "Error with request" })
+        }
+        // Loading Off
+        this.setState({ ValidatationPassword: null, Validate: false, Loading: false });
+    }
 
     render() {
         const Error = () => {
@@ -152,44 +148,46 @@ class ChangeUserPassword extends Component {
                         </div>
                         {this.context.isUsingAlternativeLogin === true ? (<div className="disabled-change-password"><label>Your account is linked to {this.context.AlternativeLoginProvider}</label></div>) : (
                             <div>
-                                <Error />
-                                <div className="Auth-card-span">
-                                    <label>Current Password</label>
-                                    <div style={{ display: "flex" }}>
-                                        <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.CurrentPassword} onChange={this.handleChange} id="CurrentPassword" name="CurrentPassword" type={this.state.showPassword}></input>
-                                        <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                <form>
+                                    <Error />
+                                    <div className="Auth-card-span">
+                                        <label>Current Password</label>
+                                        <div style={{ display: "flex" }}>
+                                            <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.CurrentPassword} onChange={this.handleChange} id="CurrentPassword" name="CurrentPassword" type={this.state.showPassword}></input>
+                                            <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div style={{ padding: "1rem 0" }} className="Auth-card-span">
-                                    <label>In order to protect your account, make sure your password:</label>
-                                    <ul className="password-checker-wrapper">
-                                        <li className={this.state.pasCheck.pasHaveLowercase}>Contains at least one lowercase.</li>
-                                        <li className={this.state.pasCheck.pasHaveUppsercase}> Contains at least one uppsercase.</li>
-                                        <li className={this.state.pasCheck.pasHasSymbol}>Contains at least one symbol.</li>
-                                        <li className={this.state.pasCheck.pasHasNumber}>Contains at least one digit.</li>
-                                        <li className={this.state.pasCheck.pasHasLenght}>Is at least 8 characters long.</li>
-                                    </ul>
-                                </div>
+                                    <div style={{ padding: "1rem 0" }} className="Auth-card-span">
+                                        <label>In order to protect your account, make sure your password:</label>
+                                        <ul className="password-checker-wrapper">
+                                            <li className={this.state.pasCheck.pasHaveLowercase}>Contains at least one lowercase.</li>
+                                            <li className={this.state.pasCheck.pasHaveUppsercase}> Contains at least one uppsercase.</li>
+                                            <li className={this.state.pasCheck.pasHasSymbol}>Contains at least one symbol.</li>
+                                            <li className={this.state.pasCheck.pasHasNumber}>Contains at least one digit.</li>
+                                            <li className={this.state.pasCheck.pasHasLenght}>Is at least 8 characters long.</li>
+                                        </ul>
+                                    </div>
 
-                                <div className="Auth-card-span">
-                                    <label>New Password</label>
-                                    <div style={{ display: "flex" }}>
-                                        <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} onChange={this.handleChange} id="NewPassword" name="NewPassword" type={this.state.showPassword}></input>
-                                        <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                    <div className="Auth-card-span">
+                                        <label>New Password</label>
+                                        <div style={{ display: "flex" }}>
+                                            <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewPassword} onChange={this.handleChange} id="NewPassword" name="NewPassword" type={this.state.showPassword}></input>
+                                            <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="Auth-card-span">
-                                    <label>Re-enter New Password</label>
-                                    <div style={{ display: "flex" }}>
-                                        <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewRePassword} onChange={this.handleChange} id="NewRePassword" name="NewRePassword" type={this.state.showPassword}></input>
-                                        <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                    <div className="Auth-card-span">
+                                        <label>Re-enter New Password</label>
+                                        <div style={{ display: "flex" }}>
+                                            <input className="auth-input" style={{ borderRadius: "4px 0 0 4px" }} value={this.state.NewRePassword} onChange={this.handleChange} id="NewRePassword" name="NewRePassword" type={this.state.showPassword}></input>
+                                            <i onMouseLeave={() => this.setState({ showPassword: "Password" })} onMouseEnter={() => this.setState({ showPassword: "Text" })} className="fa fa-eye" aria-hidden="true"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="Auth-card-span">
-                                    <div className="submit-btn-wrapper">
-                                        <button disabled={!this.state.confirmBtnStatus} >Confirm Changes</button>
+                                    <div className="Auth-card-span">
+                                        <div className="submit-btn-wrapper">
+                                            <button disabled={!this.state.confirmBtnStatus} onClick={this.handleSubmit} >Confirm Changes</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>)}
                         <div onClick={this.clearAllInputStates} className="Auth-card-span link">
                             <Link className="black_link" to="/myprofile"><label>Back</label></Link>

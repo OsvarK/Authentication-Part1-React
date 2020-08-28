@@ -16,6 +16,7 @@ export class AuthenticationProvider extends Component {
                 Lastname: 'NONE',
                 Email: 'NONE',
                 IsAdmin: 'NONE',
+                ProfileImgUrl: 'NONE'
             }
         }
     }
@@ -41,8 +42,10 @@ export class AuthenticationProvider extends Component {
                             Firstname: data.firstname,
                             Lastname: data.lastname,
                             Email: data.email,
-                            IsAdmin: data.isAdmin
-                        }
+                            IsAdmin: data.isAdmin,
+                            ProfileImageUrl: data.profileImageUrl
+                        },
+                        selectedFileForUpload: null
                     })
                 })
                 this.setState({ isAuthenticated: true })
@@ -86,7 +89,7 @@ export class AuthenticationProvider extends Component {
 
     render() {
         return (
-            <AuthenticationContext.Provider value={{ ...this.state, Logout: this.Logout, DeleteAccount: this.DeleteAccount }}>
+            <AuthenticationContext.Provider value={{ ...this.state, Logout: this.Logout, DeleteAccount: this.DeleteAccount, UploadProfileImage: this.UploadProfileImage }}>
                 {this.props.children}
             </AuthenticationContext.Provider>
         );

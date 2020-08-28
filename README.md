@@ -84,6 +84,6 @@ how it all come together.
 ## Why no Redux?
 i'm not comfortable workign with them yet, becouse i havent done enough reading, and i feel like they are not necessary for this project, yet.
 
-### The react part of this project is quite straightforward and therefor skipping a lot of unnecessary dokumentation :)
+### The react part of this project is quite straightforward and therefor skipping a lot of unnecessary documentation :)
 
 

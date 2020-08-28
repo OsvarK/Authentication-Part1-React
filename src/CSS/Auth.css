@@ -148,14 +148,21 @@
         padding-top: 12px;
     }
 
+
 .account-information-card {
     align-self: center;
     background-color: white;
     margin: auto;
+    display: flex;
+}
+
+.account-informatio-content:nth-child(2) {
+    margin-left: 1rem;
 }
 
 .section-h1 {
-    font-size: 25px;
+    font-size: 20px;
+    color: black;
 }
 
 .account-informatio-content label {
@@ -166,11 +173,10 @@
 
 .user-info {
     display: flex;
-    padding: 0.2rem 0;
+    padding: 0.1rem 0;
 }
-
     .user-info label:nth-child(1) {
-        margin-right: 2rem;
+        margin-right: 1rem;
         width: 6rem;
     }
     .user-info label:nth-child(2) {
@@ -178,16 +184,22 @@
         font-weight: 500;
     }
 
+    .user-info img {
+        width: 8rem;
+        height: auto;
+        border-radius: 4px;
+    }
 
 
-.Auth-error-Wrapper {
-    background-color: red;
-    padding: 1px;
-    border-radius: 4px;
-    color: white;
-    font-size: 14px;
-    text-align: center;
-}
+
+    .Auth-error-Wrapper {
+        background-color: red;
+        padding: 1px;
+        border-radius: 4px;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+    }
 
 
 .Auth-submit-btn-wrapper{
@@ -239,6 +251,7 @@
 .red {
     color: #DF5757;
 }
+
 
 .link-wrapper {
     width: 100%;
