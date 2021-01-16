@@ -6,7 +6,7 @@ The goal of this project is to learn the .NET framework, but also get some under
 # The AuthenticationRouter
 The Authentication Router is wrapping all the components in the application to determine the state of the authentication of the user. we do also wrapp everything with the AuthenticationProvider to gain all the components the access to its context.
 
-#Live version
+# Live version
 https://karlssonoscar.com/
 
 ## Tech
